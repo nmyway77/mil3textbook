@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>목일일중3 교과서 배열영작 [ 목동서로 영어학원 ]</title>
+  <title>목동중3 교과서 배열영작 [ 목동서로 영어학원 ]</title>
   <style>
     body { font-family: 'Arial Rounded MT Bold', Arial, sans-serif; padding: 24px; background: #f6f8fa; }
     .header {
@@ -53,7 +53,7 @@
 <body>
   <div class="header">
     <a href="https://nmyway77.github.io/home2/" class="home-btn-ko" title="홈으로 이동">홈으로</a>
-    목일중3 교과서배열영작[목동서로영어학원]
+    목동중3 교과서배열영작[목동서로영어학원]
   </div>
   <div class="lesson-select-bar">
     <select id="lessonSelect" onchange="goToLesson(this.value)"></select>
@@ -70,196 +70,176 @@
     // 1~10과 샘플 데이터 (1과만 예시, 2~10은 샘플 문제)
     const lessons = [
       {
-        title: "Lesson 1 - HOLES,
+        title: "Lesson 1 - Find a Dream and Live It!",
         problems: [
 {
-  kor: "더 열심히 파, 스탠리! 더 세게 팔수록 더 빨리 끝낼 수 있어!” 하고 Mr. Sir가 소리쳤다.",
-  eng: ["Dig", "harder", ",", "Stanley", "!", "The", "harder", "you", "dig", ",", "the", "faster", "you", "’", "ll", "finish", "!", "”", "yelled", "Mr", ".", "Sir", "."],
+  kor: "꿈을 찾아 이루어라!",
+  eng: ["Find", "a", "Dream", "and", "Live", "It", "!"],
 },
 
 {
-  kor: "스탠리 옐내츠는 모든 근육이 쑤셔서 더 세게 팠다간 몸이 부서질 것 같았다.",
-  eng: ["Stanley", "Yelnats", "couldn", "’", "t", "dig", "any", "harder", "since", "every", "single", "muscle", "hurt", "."],
+  kor: "여러분, 안녕하세요. 제 이름은 데이비드 파커이고, 저는 사진작가입니다.",
+  eng: ["Hello", ",", "everyone", ".", "My", "name", "is", "David", "Parker", ",", "and", "I", "’", "m", "a", "photographer", "."],
 },
 
 {
-  kor: "그는 목이 말랐고 배도 고팠다.",
-  eng: ["He", "was", "thirsty", "and", "hungry", "."],
+  kor: "오늘은 제가 어떻게 꿈을 찾고 이루었는지 이야기하려고 합니다.",
+  eng: ["Today", ",", "I", "’", "m", "going", "to", "tell", "you", "how", "I", "found", "my", "dream", "and", "realized", "it", "."],
 },
 
 {
-  kor: "집에 가고 싶었다.",
-  eng: ["He", "wanted", "to", "go", "home", "."],
+  kor: "제 이야기가 여러분에게 영감을 주기를 바랍니다.",
+  eng: ["I", "hope", "my", "story", "can", "inspire", "you", "."],
 },
 
 {
-  kor: "안타깝게도 앞으로 18개월 동안 스탠리가 집이라고 부를 곳은 바로 이곳, 캠프 그린 레이크였다.",
-  eng: ["Unfortunately", ",", "Stanley", "’", "s", "home", "for", "the", "next", "18", "months", "would", "be", "right", "here", ",", "at", "Camp", "Green", "Lake", "."],
+  kor: "어렸을 때 저는 별을 좋아했습니다. 사진을 찍는 것도 좋아했죠.",
+  eng: ["When", "I", "was", "young", ",", "I", "loved", "stars", ".", "I", "also", "liked", "taking", "pictures", "."],
 },
 
 {
-  kor: "캠프 그린 레이크라는 이름은 끔찍했다.",
-  eng: ["Camp", "Green", "Lake", "was", "a", "terrible", "name", "."],
+  kor: "하지만 이런 것들이 직업으로 이어질 수 있다고는 생각해 본 적이 없었습니다.",
+  eng: ["However", ",", "I", "never", "thought", "these", "things", "could", "lead", "to", "a", "job", "."],
 },
 
 {
-  kor: "초록색은커녕 호수도 없었다.",
-  eng: ["It", "wasn", "’", "t", "green", "and", "there", "was", "no", "lake", "."],
+  kor: "사실 저는 전혀 꿈이 없었습니다.",
+  eng: ["In", "fact", ",", "I", "didn", "’", "t", "have", "a", "dream", "at", "all", "."],
 },
 
 {
-  kor: "캠프 그린 레이크는 덥고 모래투성이였다.",
-  eng: ["Camp", "Green", "Lake", "was", "hot", "and", "full", "of", "sand", "."],
+  kor: "대학에서 전공을 정해야 할 때 저는 공학을 선택했습니다.",
+  eng: ["When", "I", "had", "to", "decide", "on", "a", "major", "in", "college", ",", "I", "chose", "engineering", "."],
 },
 
 {
-  kor: "사실 캠프라고 부를 수도 없었다.",
-  eng: ["In", "fact", ",", "it", "wasn", "’", "t", "even", "a", "camp", "."],
+  kor: "엔지니어가 되는 것은 괜찮아 보였거든요.",
+  eng: ["Being", "an", "engineer", "looked", "OK", "."],
 },
 
 {
-  kor: "나쁜 소년들을 위한 곳이었다.",
-  eng: ["It", "was", "a", "place", "for", "bad", "boys", "."],
+  kor: "대학 졸업 후 저는 엔지니어링 회사에 취직했습니다.",
+  eng: ["After", "college", ",", "I", "got", "a", "job", "at", "an", "engineering", "company", "."],
 },
 
 {
-  kor: "그렇다면 착한 소년인 스탠리가 여기 온 이유는 무엇이었을까?",
-  eng: ["Then", "what", "was", "a", "good", "boy", "like", "Stanley", "doing", "here", "?"],
+  kor: "안정적인 직장이었지만, 제가 정말로 즐기고 있는지는 알 수 없었습니다.",
+  eng: ["It", "was", "a", "stable", "job", ",", "but", "I", "didn", "’", "t", "know", "whether", "I", "really", "enjoyed", "it", "."],
 },
 
 {
-  kor: "그는 운동화 한 켤레를 훔쳤다는 이유로 이곳에 보내졌다.",
-  eng: ["He", "was", "sent", "to", "the", "camp", "for", "stealing", "a", "pair", "of", "sneakers", "."],
+  kor: "어느 겨울에 아이슬란드로 여행을 갔을 때 모든 것이 변했습니다.",
+  eng: ["Everything", "changed", "when", "I", "went", "on", "vacation", "to", "Iceland", "one", "winter", "."],
 },
 
 {
-  kor: "스탠리가 실제로 운동화를 훔친 것은 아니었다.",
-  eng: ["Stanley", "didn", "’", "t", "really", "steal", "a", "pair", "of", "sneakers", "."],
+  kor: "거기서 저는 오로라를 볼 기회를 얻었죠.",
+  eng: ["There", "I", "got", "a", "chance", "to", "see", "the", "Northern", "Lights", "."],
 },
 
 {
-  kor: "그저 잘못된 시간에 잘못된 장소에 있었을 뿐이었다.",
-  eng: ["He", "was", "just", "in", "the", "wrong", "place", "at", "the", "wrong", "time", "."],
+  kor: "오로라는 정말 환상적이었고, 저는 하늘에서 춤추는 빛을 많이 사진에 담았습니다.",
+  eng: ["The", "lights", "were", "amazing", ",", "and", "I", "took", "many", "pictures", "of", "the", "dancing", "lights", "in", "the", "sky", "."],
 },
 
 {
-  kor: "어느 날 그는 학교에서 집으로 걸어가고 있었다.",
-  eng: ["One", "day", ",", "he", "was", "walking", "home", "from", "school", "."],
+  kor: "여러 해 만에 처음으로 제 심장이 빠르게 뛰는 것을 느낄 수 있었습니다.",
+  eng: ["For", "the", "first", "time", "in", "many", "years", ",", "I", "could", "feel", "my", "heart", "beating", "fast", "."],
 },
 
 {
-  kor: "갑자기 허름한 운동화 한 켤레가 하늘에서 떨어졌다.",
-  eng: ["Suddenly", ",", "a", "pair", "of", "old", "sneakers", "fell", "from", "the", "sky", "."],
+  kor: "돌아와서 아이슬란드에서 찍은 사진으로 사진 공모전에 응모했습니다.",
+  eng: ["After", "I", "came", "back", ",", "I", "entered", "a", "photo", "contest", "with", "the", "pictures", "I", "took", "in", "Iceland", "."],
 },
 
 {
-  kor: "운동화는 그의 머리를 강타했다.",
-  eng: ["The", "sneakers", "hit", "him", "on", "the", "head", "."],
+  kor: "놀랍게도 1등을 수상했고, 이는 제 인생을 돌아볼 기회를 주었습니다.",
+  eng: ["Surprisingly", ",", "I", "won", "first", "prize", ",", "and", "this", "gave", "me", "a", "chance", "to", "think", "about", "my", "life", "."],
 },
 
 {
-  kor: "그는 무슨 일인지 아버지에게 알리려고 운동화를 들고 뛰기 시작했다.",
-  eng: ["He", "started", "running", "with", "the", "sneakers", "to", "tell", "his", "father", "what", "happened", "."],
+  kor: "사진을 찍는 것이 저를 행복하게 한다는 것을 깨달았습니다.",
+  eng: ["I", "realized", "that", "taking", "pictures", "made", "me", "happy", "."],
 },
 
 {
-  kor: "몇 분 후 경찰이 스탠리를 멈추고 왜 뛰고 있는지 물었다.",
-  eng: ["A", "few", "minutes", "later", ",", "the", "police", "stopped", "Stanley", "and", "asked", "him", "why", "he", "was", "running", "."],
+  kor: "갑자기 저는 훌륭한 사진작가가 되고 싶어져서 사진에 대해 더 배우기 시작했습니다.",
+  eng: ["Suddenly", ",", "I", "wanted", "to", "become", "a", "good", "photographer", ",", "so", "I", "started", "to", "learn", "more", "about", "photography", "."],
 },
 
 {
-  kor: "불행히도 그 운동화는 유명 야구 선수 클라이드 리빙스턴의 것이었다.",
-  eng: ["Unfortunately", "for", "Stanley", ",", "the", "sneakers", "belonged", "to", "a", "famous", "baseball", "player", ",", "Clyde", "Livingstone", "."],
+  kor: "수년간의 시행착오 끝에 저는 실력이 늘었고,",
+  eng: ["After", "years", "of", "trial", "and", "error", ",", "I", "got", "better", ",", "and"],
 },
 
 {
-  kor: "그 때문에 스탠리는 캠프 그린 레이크에 오게 된 것이다.",
-  eng: ["That", "was", "why", "Stanley", "ended", "up", "at", "Camp", "Green", "Lake", "."],
+  kor: "사진작가로서 파트타임 일을 시작했습니다.",
+  eng: ["I", "began", "to", "do", "some", "part-time", "work", "as", "a", "photographer", "."],
 },
 
 {
-  kor: "스탠리는 캠프에서 D조에 배정되었다.",
-  eng: ["Stanley", "was", "assigned", "to", "Group", "D", "in", "the", "camp", "."],
+  kor: "그러다 어느 날 저는 과감한 결정을 내렸습니다.",
+  eng: ["Then", "one", "day", ",", "I", "made", "a", "bold", "decision", "."],
 },
 
 {
-  kor: "스탠리의 조에는 여섯 명의 소년이 더 있었다.",
-  eng: ["There", "were", "six", "other", "boys", "in", "Stanley", "’", "s", "group", "."],
+  kor: "저는 직장을 그만두고 사진을 찍으며 살기로 결심했습니다.",
+  eng: ["I", "quit", "my", "job", "and", "decided", "to", "take", "pictures", "for", "a", "living", "."],
 },
 
 {
-  kor: "그들은 모두 X-Ray, Zigzag, Zero 같은 멋진 별명을 가지고 있었다.",
-  eng: ["They", "all", "had", "cool", "names", "like", "X-Ray", ",", "Zigzag", "and", "Zero", "."],
+  kor: "성공할 수 있을지 확신이 없었지만, 도전하기로 했습니다.",
+  eng: ["I", "wasn", "’", "t", "sure", "if", "I", "could", "succeed", ",", "but", "I", "decided", "to", "try", "."],
 },
 
 {
-  kor: "각 소년은 매일 구덩이 하나를 파야 했다.",
-  eng: ["Each", "boy", "had", "to", "dig", "one", "hole", "every", "day", "."],
+  kor: "저는 정말 저를 행복하게 하는 일을 하고 싶었습니다.",
+  eng: ["I", "really", "wanted", "to", "do", "something", "that", "made", "me", "happy", "."],
 },
 
 {
-  kor: "깊이와 너비가 각각 약 150cm여야 했다.",
-  eng: ["It", "had", "to", "be", "about", "150cm", "deep", "and", "150cm", "wide", "."],
+  kor: "지금 저는 전문 사진작가가 되었고, 행복합니다.",
+  eng: ["Now", ",", "I", "’", "m", "a", "professional", "photographer", ",", "and", "I", "’", "m", "happy", "."],
 },
 
 {
-  kor: "Mr. Sir는 “너희가 캐는 것은 인성을 기르기 위해서야.”라고 말했다.",
-  eng: ["Mr", ".", "Sir", "said", ",", "“", "You", "are", "digging", "to", "build", "character", ".", "”"],
+  kor: "여러분도 꿈을 찾아 이루고 싶나요? 여러분을 위한 조언을 드립니다.",
+  eng: ["So", "do", "you", "want", "to", "find", "a", "dream", "and", "realize", "it", "?", "Here", "’", "s", "some", "advice", "to", "help", "you", "."],
 },
 
 {
-  kor: "스탠리가 더 많이 팔수록 그는 더 강해졌다.",
-  eng: ["The", "more", "Stanley", "dug", ",", "the", "stronger", "he", "became", "."],
+  kor: "첫째, 마음을 따르세요. 무엇을 하고 싶고 무엇이 여러분을 행복하게 하는지 생각해 보세요.",
+  eng: ["First", ",", "follow", "your", "heart", ".", "Think", "about", "what", "you", "like", "to", "do", "and", "what", "makes", "you", "happy", "."],
 },
 
 {
-  kor: "매일 구덩이를 파는 데 걸리는 시간이 줄어들었다.",
-  eng: ["It", "took", "less", "time", "to", "finish", "his", "hole", "each", "day", "."],
+  kor: "저의 경우에는 별을 사진으로 찍는 것이었습니다.",
+  eng: ["In", "my", "case", ",", "it", "was", "taking", "pictures", "of", "stars", "."],
 },
 
 {
-  kor: "두 번째 주에 스탠리가 구덩이를 거의 마무리할 때 흙 속에서 반짝이는 것을 발견했다.",
-  eng: ["In", "his", "second", "week", ",", "as", "Stanley", "was", "finishing", "his", "hole", ",", "he", "saw", "something", "shiny", "in", "the", "dirt", "."],
+  kor: "둘째, 열심히 노력하세요. 꿈을 좇는 일은 쉽지 않습니다.",
+  eng: ["Second", ",", "work", "hard", ".", "Pursuing", "a", "dream", "is", "not", "easy", "."],
 },
 
 {
-  kor: "스탠리의 심장은 빠르게 뛰기 시작했다.",
-  eng: ["Stanley", "’", "s", "heart", "beat", "faster", "."],
+  kor: "저는 노력으로 사진작가가 되었습니다.",
+  eng: ["I", "became", "a", "photographer", "through", "hard", "work", "."],
 },
 
 {
-  kor: "흥미로운 것을 찾으면 하루 휴가를 준다는 말을 들은 적이 있었다.",
-  eng: ["He", "heard", "that", "anyone", "who", "found", "something", "interesting", "would", "be", "given", "the", "day", "off", "."],
+  kor: "셋째, 과감해지세요. 여러분의 인생을 바꿀 결정을 내리려면 용기가 필요합니다.",
+  eng: ["Third", ",", "be", "bold", ".", "You", "need", "courage", "to", "make", "decisions", "that", "will", "change", "your", "life", "."],
 },
 
 {
-  kor: "스탠리는 조심스럽게 반짝이는 물체를 집어들어 흙을 털어냈다.",
-  eng: ["He", "carefully", "picked", "up", "the", "shiny", "object", "and", "brushed", "off", "the", "dirt", "."],
+  kor: "저도 두려웠지만 기회를 잡았습니다.",
+  eng: ["I", "was", "afraid", "but", "I", "took", "a", "chance", "."],
 },
 
 {
-  kor: "작고 금빛이 도는 관 모양의 물체였다.",
-  eng: ["It", "was", "a", "small", "gold", "tube", "."],
-},
-
-{
-  kor: "너무 가벼워서 진짜 금관일 리는 없었다.",
-  eng: ["But", "it", "couldn", "’", "t", "be", "real", "gold", "since", "it", "was", "too", "light", "."],
-},
-
-{
-  kor: "관 밑부분에는 KB라는 두 글자가 새겨져 있었다.",
-  eng: ["There", "were", "two", "letters", ",", "KB", ",", "at", "the", "bottom", "of", "the", "tube", "."],
-},
-
-{
-  kor: "KB는 무엇을 뜻하는 걸까?",
-  eng: ["What", "did", "KB", "stand", "for", "?"],
-},
-
-{
-  kor: "스탠리의 심장은 더욱 빠르게 뛰었다.",
-  eng: ["Stanley", "’", "s", "heart", "beat", "even", "faster", "."],
+  kor: "여러분이 진정으로 꿈을 찾고, 그 꿈을 향해 노력하며, 꿈을 이루며 살기를 진심으로 바랍니다!",
+  eng: ["I", "truly", "hope", "you", "can", "find", "a", "dream", ",", "pursue", "it", ",", "and", "live", "it", "!"],
 },
         ]
       },
@@ -332,506 +312,369 @@
         ]
       },
       {
-        title: "Lesson 3 - Possible or Impossible",
+        title: "Lesson 3 - English Words of Foreign Origin",
         problems: [
-{  kor: "가능할까 아니면 불가능할까",
-  eng: ["Possible", "or", "Impossible"],
+{
+  kor: "영어는 다른 문화나 언어에서 단어를 종종 빌려 왔다.",
+  eng: ["English", "has", "often", "borrowed", "words", "from", "other", "cultures", "or", "languages", "."],
 },
-{  kor: "애니메이션 영화에서는 놀라운 일들이 가능하다.",
-  eng: ["In", "animation", "movies", ",", "amazing", "things", "are", "possible", "."],
+
+{
+  kor: "여기 재미있는 이야기를 가진 몇 개의 예가 있다.",
+  eng: ["Here", "are", "some", "examples", "with", "interesting", "stories", "."],
 },
-{  kor: "하지만 그것들이 실제 삶에서 정말 가능할까?",
-  eng: ["But", "are", "they", "actually", "possible", "in", "real", "life", "?"],
+
+{
+  kor: "shampoo라는 단어는 힌디어 단어인 chāmpo에서 왔는데, 그것은 ‘누르다’라는 의미이다.",
+  eng: ["The", "word", "shampoo", "comes", "from", "the", "Hindi", "word", "ch", "mpo", ",", "which", "means", "“", "to", "press", ".", "”"],
 },
-{  kor: "머리를 내려라, 라푼젤!",
-  eng: ["Let", "Down", "Your", "Hair", ",", "Rapunzel", "!"],
+
+{
+  kor: "인도에서 그 단어는 머리 마사지를 가리키는 데 쓰였다.",
+  eng: ["In", "India", ",", "the", "word", "was", "used", "for", "a", "head", "massage", "."],
 },
-{  kor: "애니메이션에서 라푼젤은 사람들을 탑 안으로 들이기 위해 긴 머리카락을 내려야 한다.",
-  eng: ["In", "the", "animation", ",", "Rapunzel", "must", "lower", "her", "long", "hair", "to", "let", "people", "in", "her", "tower", "."],
+
+{
+  kor: "인도에 있던 영국 무역상들이 머리 마사지를 곁들인 목욕을 경험하고, 18세기에 그것을 영국에 소개했다.",
+  eng: ["British", "traders", "in", "India", "experienced", "a", "bath", "with", "a", "head", "massage", "and", "introduced", "it", "to", "Britain", "in", "the", "18th", "century", "."],
 },
-{  kor: "하지만 인간의 머리카락이 실제로 한 사람의 체중을 지탱할 수 있을까?",
-  eng: ["But", "could", "human", "hair", "really", "hold", "up", "a", "person", "?"],
+
+{
+  kor: "shampoo라는 단어의 의미는 그 단어가 1762년쯤 영어에 처음 들어온 이후 몇 번 바뀌었다.",
+  eng: ["The", "meaning", "of", "the", "word", "shampoo", "changed", "a", "few", "times", "after", "it", "first", "entered", "English", "around", "1762", "."],
 },
-{  kor: "놀랍게도, 그렇다! 한 가닥의 머리카락은 100 g을 지탱할 수 있고, 평균 머리에는 약 120,000가닥의 머리카락이 있다.",
-  eng: ["Surprisingly", ",", "yes", "!", "A", "single", "hair", "can", "hold", "up", "100", "g", "and", "an", "average", "head", "has", "about", "120", ",", "000", "hairs", "."],
+
+{
+  kor: "19세기에 shampoo는 ‘머리 감기’라는 현재의 의미를 갖게 되었다.",
+  eng: ["In", "the", "19th", "century", ",", "shampoo", "got", "its", "present", "meaning", "of", "“", "washing", "the", "hair", ".", "”"],
 },
-{  kor: "그 모든 머리카락이 모이면 코끼리 몇 마리 정도의 체중을 지탱할 수 있다!",
-  eng: ["All", "those", "hairs", "could", "hold", "up", "a", "couple", "of", "elephants", "!"],
+
+{
+  kor: "그 후 얼마 지나지 않아, 그 단어는 머리에 사용하는 특별한 비누를 가리키는 데에도 쓰이기 시작했다.",
+  eng: ["Shortly", "after", "that", ",", "the", "word", "began", "to", "be", "also", "used", "for", "a", "special", "soap", "for", "the", "hair", "."],
 },
-{  kor: "라푼젤은 자신의 머리카락으로 사람을 들어 올릴 수 있는 능력을 가진 것이다.",
-  eng: ["With", "her", "hair", ",", "Rapunzel", "has", "the", "ability", "to", "hold", "up", "a", "person", "."],
+
+{
+  kor: "robot이라는 단어는 희곡 ‘R.U.R.’에서 왔는데, 그 희곡은 1920년에 체코의 작가 Karel Čapek이 썼다.",
+  eng: ["The", "word", "robot", "comes", "from", "the", "play", "R", ".", "U", ".", "R", ".", ",", "which", "was", "written", "in", "1920", "by", "a", "Czech", "writer", "Karel", "apek", "."],
 },
-{  kor: "하지만 그녀는 머리카락을 강하고 무거운 물체에 감아야 한다.",
-  eng: ["But", "she", "should", "wrap", "her", "hair", "around", "something", "strong", "and", "heavy", "."],
+
+{
+  kor: "그 희곡에서 로봇은 인간처럼 생긴 기계이다.",
+  eng: ["In", "the", "play", ",", "robots", "are", "machines", "that", "look", "like", "humans", "."],
 },
-{  kor: "그렇지 않으면 목이 매우 아플 것이다.",
-  eng: ["If", "she", "doesn't", ",", "she", "will", "get", "a", "very", "sore", "neck", "."],
+
+{
+  kor: "그것은 인간을 위해 일하도록 설계되고, 공장에서 생산된다.",
+  eng: ["They", "are", "designed", "to", "work", "for", "humans", "and", "are", "produced", "in", "a", "factory", "."],
 },
-{  kor: "가능할까 아니면 불가능할까",
-  eng: ["Possible", "or", "Impossible"],
+
+{
+  kor: "robot이라는 단어를 사용하려는 생각이 Karel Čapek 자신에게서 나온 게 아니었다는 것은 흥미롭다.",
+  eng: ["It", "is", "interesting", "that", "the", "idea", "of", "using", "the", "word", "robot", "didn", "’", "t", "come", "from", "Karel", "apek", "himself", "."],
 },
-{  kor: "에너지를 위해 우리는 공포를 선사한다",
-  eng: ["We", "Scare", "for", "Energy"],
+
+{
+  kor: "그는 원래 자신의 희곡에 등장하는 그 기계들을 ‘일’을 의미하는 라틴어 단어에서 온 labori라고 불렀다.",
+  eng: ["He", "originally", "called", "the", "machines", "in", "his", "play", "labori", "from", "the", "Latin", "word", "for", "”", "work", ".", "“"],
 },
-{  kor: "애니메이션에서 괴물들은 비명으로부터 에너지를 얻기 위해 아이들을 겁에 질리게 한다.",
-  eng: ["In", "the", "animation", ",", "monsters", "scare", "children", "to", "get", "energy", "from", "their", "screams", "."],
+
+{
+  kor: "하지만 그의 형이 roboti를 제안했는데, 그것은 체코어로 ‘노예 근로자들’을 의미한다.",
+  eng: ["However", ",", "his", "brother", "suggested", "roboti", ",", "which", "means", "”", "slave", "workers", "“", "in", "Czech", "."],
 },
-{  kor: "놀랍게도 그들의 도시는 이 소리로 움직인다!",
-  eng: ["Amazingly", ",", "their", "city", "is", "powered", "by", "this", "sound", "!"],
+
+{
+  kor: "Karel Čapek은 그 아이디어가 마음에 들어 roboti라는 단어를 사용하기로 결정했다.",
+  eng: ["Karel", "apek", "liked", "the", "idea", "and", "decided", "to", "use", "the", "word", "roboti", "."],
 },
-{  kor: "하지만 우리가 소리만으로 도시를 밝힐 전기를 실제로 생산할 수 있을까?",
-  eng: ["But", "could", "we", "actually", "produce", "electricity", "to", "light", "up", "a", "city", "from", "sound", "?"],
+
+{
+  kor: "1938년에 그 희곡은 영국 TV에서 공상 과학물로 만들어졌다.",
+  eng: ["In", "1938", ",", "the", "play", "was", "made", "into", "a", "science", "fiction", "show", "on", "television", "in", "Britain", "."],
 },
-{  kor: "네, 소리는 전기로 변환될 수 있다.",
-  eng: ["Yes", ",", "sound", "can", "be", "changed", "into", "electricity", "."],
+
+{
+  kor: "hurricane이라는 단어는 스페인어 단어인 huracán에서 왔는데, 그것은 마야 신의 이름에서 유래한다.",
+  eng: ["The", "word", "hurricane", "comes", "from", "the", "Spanish", "word", "hurac", "n", ",", "which", "originates", "from", "the", "name", "of", "a", "Mayan", "god", "."],
 },
-{  kor: "하지만 그 양이 너무 적어서 일상생활에는 도움이 되지 않을 것이다.",
-  eng: ["But", "it", "would", "not", "be", "helpful", "in", "our", "everyday", "activities", "because", "the", "amount", "is", "too", "small", "."],
+
+{
+  kor: "마야의 창조 신화에서 Huracán은 바람, 폭풍우, 그리고 불을 다스리는 날씨의 신이며, 그는 인간을 창조한 세 명의 신들 중 한 명이다.",
+  eng: ["In", "the", "Mayan", "creation", "myth", ",", "Hurac", "n", "is", "the", "weather", "god", "of", "wind", ",", "storm", ",", "and", "fire", ",", "and", "he", "is", "one", "of", "the", "three", "gods", "who", "created", "humans", "."],
 },
-{  kor: "예를 들어 자동차 경적 소리는 단지 50 mV만을 생산한다.",
-  eng: ["For", "example", ",", "the", "sound", "from", "a", "car", "horn", "only", "produces", "50", "mV", "."],
+
+{
+  kor: "하지만 최초의 인간들이 그 신들을 화나게 했고, 그래서 Huracán은 거대한 홍수를 일으켰다.",
+  eng: ["However", ",", "the", "first", "humans", "angered", "the", "gods", ",", "so", "Hurac", "n", "caused", "a", "great", "flood", "."],
 },
-{  kor: "그것은 가정용 평균 220 V의 전기의 1/4400에 불과하다.",
-  eng: ["That", "is", "only", "1", "4400", "of", "the", "average", "220", "V", "of", "electricity", "in", "our", "homes", "."],
+
+{
+  kor: "스페인이 마야 문명과 처음 했던 접촉은 1517년이었다.",
+  eng: ["The", "first", "Spanish", "contact", "with", "the", "Mayan", "civilization", "was", "in", "1517", "."],
 },
-{  kor: "따라서 도시 전체를 밝히려면 엄청난 양의 비명이 필요하다.",
-  eng: ["So", ",", "we", "would", "need", "an", "unbelievable", "amount", "of", "screams", "to", "light", "up", "an", "entire", "city", "."],
+
+{
+  kor: "카리브제도를 통과해 지나가던 스페인 탐험가들이 허리케인을 겪었고, 그 지역 사람들로부터 그것을 가리키는 단어를 익히게 되었다.",
+  eng: ["Spanish", "explorers", "who", "were", "passing", "through", "the", "Caribbean", "experienced", "a", "hurricane", "and", "picked", "up", "the", "word", "for", "it", "from", "the", "people", "in", "the", "area", "."],
 },
-{  kor: "가능할까 아니면 불가능할까",
-  eng: ["Possible", "or", "Impossible"],
+
+{
+  kor: "영어에서는 hurricane이 초기에 사용된 예 중 하나가 1608년에 셰익스피어가 쓴 희곡에서였다.",
+  eng: ["In", "English", ",", "one", "of", "the", "early", "uses", "of", "hurricane", "was", "in", "a", "play", "by", "Shakespeare", "in", "1608", "."],
 },
-{  kor: "위로, 위로 그리고 하늘 높이!",
-  eng: ["Up", ",", "Up", "and", "Away", "!"],
+
+{
+  kor: "hamburger라는 단어는 원래 독일에서 두 번째로 큰 도시인 함부르크에서 왔다.",
+  eng: ["The", "word", "hamburger", "originally", "comes", "from", "Hamburg", ",", "Germany", "’", "s", "second", "largest", "city", "."],
 },
-{  kor: "애니메이션에서 집은 수천 개의 풍선에 의해 들어 올려져 날아간다.",
-  eng: ["The", "house", "is", "lifted", "and", "flown", "by", "thousands", "of", "balloons", "in", "the", "animation", "."],
+
+{
+  kor: "hamburger는 독일어로 ‘함부르크 출신의 사람 또는 사물’을 의미한다.",
+  eng: ["Hamburger", "means", "“", "people", "or", "things", "from", "Hamburg", "”", "in", "German", "."],
 },
-{  kor: "그것이 실제로 가능할까? 집의 무게를 약 50,000 kg이라고 해보자.",
-  eng: ["Could", "that", "actually", "work", "?", "Let's", "say", "that", "a", "house", "weighs", "about", "50", ",", "000", "kg", "."],
+
+{
+  kor: "최초의 햄버거의 기원은 분명하지 않다.",
+  eng: ["The", "origin", "of", "the", "first", "hamburger", "is", "not", "clear", "."],
 },
-{  kor: "놀이공원에서 흔히 볼 수 있는 풍선 하나는 약 14 g을 들어 올릴 수 있다.",
-  eng: ["A", "normal", "balloon", "at", "an", "amusement", "park", "can", "lift", "about", "14", "g", "."],
+
+{
+  kor: "하지만 햄버거는 1885년에서 1904년 사이의 언젠가 미국의 텍사스에 있는 작은 마을에서 발명되었다고 여겨진다.",
+  eng: ["However", ",", "it", "is", "believed", "that", "the", "hamburger", "was", "invented", "in", "a", "small", "town", "in", "Texas", ",", "USA", ",", "sometime", "between", "1885", "and", "1904", "."],
 },
-{  kor: "그래서 집을 들어 올리려면 약 3,570,000개의 풍선이 필요하다.",
-  eng: ["So", "we", "need", "about", "3", ",", "570", ",", "000", "balloons", "to", "lift", "up", "the", "house", "."],
-},
-{  kor: "우리는 또한 풍선 자체와 풍선 끈의 무게도 고려해야 한다.",
-  eng: ["We", "also", "have", "to", "think", "about", "the", "weight", "of", "the", "balloons", "themselves", "and", "the", "strings", "."],
-},
-{  kor: "그럼 몇 천 개의 풍선을 더 추가해야 한다.",
-  eng: ["Then", ",", "we", "need", "to", "add", "a", "few", "more", "thousand", "balloons", "."],
-},
-{  kor: "이제 가장 큰 도전은 그 모든 풍선을 부는 것이다!",
-  eng: ["Now", ",", "the", "biggest", "challenge", "is", "pumping", "up", "all", "those", "balloons", "!"],
+
+{
+  kor: "한 요리사가 빵 두 조각 사이에 함부르크 스타일의 스테이크를 넣었고, 사람들은 그런 음식을 햄버거라고 부르기 시작했다.",
+  eng: ["A", "cook", "placed", "a", "Hamburg", "style", "steak", "between", "two", "slices", "of", "bread", ",", "and", "people", "started", "to", "call", "such", "food", "a", "hamburger", "."],
 },
         ]
       },
       {
-        title: "Lesson 4 - HOLES",
+        title: "Lesson 4 - Be a Smart Spender",
         problems: [
 {
-  kor: "더 열심히 파, 스탠리! 더 세게 팔수록 더 빨리 끝낼 수 있어!” 하고 Mr. Sir가 소리쳤다.",
-  eng: ["Dig", "harder", ",", "Stanley", "!", "The", "harder", "you", "dig", ",", "the", "faster", "you", "’", "ll", "finish", "!", "”", "yelled", "Mr", ".", "Sir", "."],
+  kor: "당신은 돈에 관해 얼마나 현명한가?",
+  eng: ["How", "smart", "are", "you", "with", "your", "money", "?"],
 },
 
 {
-  kor: "스탠리 옐내츠는 모든 근육이 쑤셔서 더 세게 팠다간 몸이 부서질 것 같았다.",
-  eng: ["Stanley", "Yelnats", "couldn", "’", "t", "dig", "any", "harder", "since", "every", "single", "muscle", "hurt", "."],
+  kor: "이것은 Green 중학교 학생 100명의 설문 조사 결과이다.",
+  eng: ["These", "are", "the", "results", "of", "a", "survey", "of", "100", "students", "at", "Green", "Middle", "School", "."],
 },
 
 {
-  kor: "그는 목이 말랐고 배도 고팠다.",
-  eng: ["He", "was", "thirsty", "and", "hungry", "."],
+  kor: "우리는 먼저 학생들에게 “당신은 돈에 관해 현명한가?”라고 물었다.",
+  eng: ["We", "first", "asked", "students", "“", "Are", "you", "smart", "with", "your", "money", "?", "”"],
 },
 
 {
-  kor: "집에 가고 싶었다.",
-  eng: ["He", "wanted", "to", "go", "home", "."],
+  kor: "그래프 1이 보여 주듯이, 30%가 “예”라고 대답한 데 비해, 70%가 “아니요”라고 답했다.",
+  eng: ["As", "Graph", "1", "shows", ",", "70", "answered", "“", "No", "”", "while", "30", "answered", "“", "Yes", ".", "”"],
 },
 
 {
-  kor: "안타깝게도 앞으로 18개월 동안 스탠리가 집이라고 부를 곳은 바로 이곳, 캠프 그린 레이크였다.",
-  eng: ["Unfortunately", ",", "Stanley", "’", "s", "home", "for", "the", "next", "18", "months", "would", "be", "right", "here", ",", "at", "Camp", "Green", "Lake", "."],
+  kor: "그다음에 우리는 “아니요”라고 대답한 학생들에게 돈에 관한 그들의 가장 큰 걱정거리가 무엇인지 물었다.",
+  eng: ["We", "then", "asked", "the", "students", "who", "answered", "“", "No", "”", "what", "their", "biggest", "money", "worry", "is", ".", "-"],
 },
 
 {
-  kor: "캠프 그린 레이크라는 이름은 끔찍했다.",
-  eng: ["Camp", "Green", "Lake", "was", "a", "terrible", "name", "."],
+  kor: "그래프 2가 보여 주듯이, 28%가 돈을 모으는 데 어려움이 있다고 생각하는 것에 비해, 60%는 용돈이 충분하지 않다고 생각한다.",
+  eng: ["As", "Graph", "2", "shows", ",", "60", "think", "they", "don", "’", "t", "have", "enough", "allowance", "while", "28", "think", "they", "have", "difficulty", "saving", "money", "."],
 },
 
 {
-  kor: "초록색은커녕 호수도 없었다.",
-  eng: ["It", "wasn", "’", "t", "green", "and", "there", "was", "no", "lake", "."],
+  kor: "마지막으로, 12%는 필요하지 않은 것에 돈을 소비한다고 말했다.",
+  eng: ["Lastly", ",", "12", "said", "they", "spent", "money", "on", "things", "they", "didn", "’", "t", "need", "."],
 },
 
 {
-  kor: "캠프 그린 레이크는 덥고 모래투성이였다.",
-  eng: ["Camp", "Green", "Lake", "was", "hot", "and", "full", "of", "sand", "."],
+  kor: "우리의 설문 조사는 대다수의 학생들이 자신들이 돈과 관련하여 현명하지 못하다고 생각한다는 것을 보여 준다.",
+  eng: ["Our", "survey", "shows", "that", "the", "majority", "of", "students", "think", "they", "are", "not", "smart", "with", "their", "money", "."],
 },
 
 {
-  kor: "사실 캠프라고 부를 수도 없었다.",
-  eng: ["In", "fact", ",", "it", "wasn", "’", "t", "even", "a", "camp", "."],
+  kor: "돈을 관리하는 것은 쉽지 않고, 현명한 소비자가 되는 것에는 노력이 필요하다.",
+  eng: ["Managing", "money", "is", "not", "easy", ",", "and", "becoming", "a", "smart", "spender", "takes", "effort", "."],
 },
 
 {
-  kor: "나쁜 소년들을 위한 곳이었다.",
-  eng: ["It", "was", "a", "place", "for", "bad", "boys", "."],
+  kor: "여러분은 돈과 관련된 걱정거리가 있나요?",
+  eng: ["Do", "you", "have", "any", "money", "worries", "?"],
 },
 
 {
-  kor: "그렇다면 착한 소년인 스탠리가 여기 온 이유는 무엇이었을까?",
-  eng: ["Then", "what", "was", "a", "good", "boy", "like", "Stanley", "doing", "here", "?"],
+  kor: "Dr. Money와 이야기해 봅시다.",
+  eng: ["Let", "’", "s", "talk", "with", "Dr", ".", "Money", "."],
 },
 
 {
-  kor: "그는 운동화 한 켤레를 훔쳤다는 이유로 이곳에 보내졌다.",
-  eng: ["He", "was", "sent", "to", "the", "camp", "for", "stealing", "a", "pair", "of", "sneakers", "."],
+  kor: "저는 Jason이에요. 저는 매주 용돈을 받지만, 늘 충분하지 않아요.",
+  eng: ["I", "’", "m", "Jason", ".", "I", "get", "a", "weekly", "allowance", ",", "but", "I", "never", "have", "enough", "."],
 },
 
 {
-  kor: "스탠리가 실제로 운동화를 훔친 것은 아니었다.",
-  eng: ["Stanley", "didn", "’", "t", "really", "steal", "a", "pair", "of", "sneakers", "."],
+  kor: "목요일쯤이면 용돈이 모두 사라지고 없어요.",
+  eng: ["By", "Thursday", ",", "all", "of", "my", "money", "is", "gone", "."],
 },
 
 {
-  kor: "그저 잘못된 시간에 잘못된 장소에 있었을 뿐이었다.",
-  eng: ["He", "was", "just", "in", "the", "wrong", "place", "at", "the", "wrong", "time", "."],
+  kor: "저는 이 문제를 어떻게 해결해야 할지 모르겠어요.",
+  eng: ["I", "don", "’", "t", "know", "how", "to", "solve", "this", "problem", "."],
 },
 
 {
-  kor: "어느 날 그는 학교에서 집으로 걸어가고 있었다.",
-  eng: ["One", "day", ",", "he", "was", "walking", "home", "from", "school", "."],
+  kor: "안녕하세요, Dr. Money입니다. 용돈 기입장을 한번 봅시다.",
+  eng: ["Hi", ",", "I", "’", "m", "Dr", ".", "Money", ".", "Let", "’", "s", "look", "at", "your", "spending", "diary", "."],
 },
 
 {
-  kor: "갑자기 허름한 운동화 한 켤레가 하늘에서 떨어졌다.",
-  eng: ["Suddenly", ",", "a", "pair", "of", "old", "sneakers", "fell", "from", "the", "sky", "."],
+  kor: "주초에 용돈의 대부분을 다 써 버렸군요.",
+  eng: ["You", "used", "up", "most", "of", "your", "money", "at", "the", "beginning", "of", "the", "week", "."],
 },
 
 {
-  kor: "운동화는 그의 머리를 강타했다.",
-  eng: ["The", "sneakers", "hit", "him", "on", "the", "head", "."],
+  kor: "여기 제 조언이 있어요.",
+  eng: ["Here", "’", "s", "my", "tip", "."],
 },
 
 {
-  kor: "그는 무슨 일인지 아버지에게 알리려고 운동화를 들고 뛰기 시작했다.",
-  eng: ["He", "started", "running", "with", "the", "sneakers", "to", "tell", "his", "father", "what", "happened", "."],
+  kor: "일주일 용돈 전부를 가지고 다니지 마세요.",
+  eng: ["Don", "’", "t", "carry", "around", "all", "of", "your", "weekly", "allowance", "."],
 },
 
 {
-  kor: "몇 분 후 경찰이 스탠리를 멈추고 왜 뛰고 있는지 물었다.",
-  eng: ["A", "few", "minutes", "later", ",", "the", "police", "stopped", "Stanley", "and", "asked", "him", "why", "he", "was", "running", "."],
+  kor: "용돈을 요일별로 나누세요.",
+  eng: ["Divide", "the", "money", "into", "days", "."],
 },
 
 {
-  kor: "불행히도 그 운동화는 유명 야구 선수 클라이드 리빙스턴의 것이었다.",
-  eng: ["Unfortunately", "for", "Stanley", ",", "the", "sneakers", "belonged", "to", "a", "famous", "baseball", "player", ",", "Clyde", "Livingstone", "."],
+  kor: "그리고 날마다 필요한 돈만 들고 다니세요.",
+  eng: ["Then", "carry", "only", "the", "money", "you", "need", "for", "each", "day", "."],
 },
 
 {
-  kor: "그 때문에 스탠리는 캠프 그린 레이크에 오게 된 것이다.",
-  eng: ["That", "was", "why", "Stanley", "ended", "up", "at", "Camp", "Green", "Lake", "."],
+  kor: "안녕하세요, Dr. Money.  저는 Steve예요.",
+  eng: ["Hello", ",", "Dr", ".", "Money", ".", "I", "’", "m", "Steve", "."],
 },
 
 {
-  kor: "스탠리는 캠프에서 D조에 배정되었다.",
-  eng: ["Stanley", "was", "assigned", "to", "Group", "D", "in", "the", "camp", "."],
+  kor: "저는 돈을 모으는 데 어려움이 있어요.",
+  eng: ["I", "have", "difficulty", "saving", "money", "."],
 },
 
 {
-  kor: "스탠리의 조에는 여섯 명의 소년이 더 있었다.",
-  eng: ["There", "were", "six", "other", "boys", "in", "Stanley", "’", "s", "group", "."],
+  kor: "예를 들면, 저는 좋아하는 가수의 콘서트에 가려고 지난 두 달 동안 저축해 오고 있어요.",
+  eng: ["For", "example", ",", "I", "’", "ve", "been", "saving", "to", "go", "to", "my", "favorite", "singer", "’", "s", "concert", "for", "the", "last", "two", "months", "."],
 },
 
 {
-  kor: "그들은 모두 X-Ray, Zigzag, Zero 같은 멋진 별명을 가지고 있었다.",
-  eng: ["They", "all", "had", "cool", "names", "like", "X-Ray", ",", "Zigzag", "and", "Zero", "."],
+  kor: "하지만 여전히 돈이 충분하지 않아요",
+  eng: ["However", ",", "I", "still", "don", "’", "t", "have", "enough", "money", "."],
 },
 
 {
-  kor: "각 소년은 매일 구덩이 하나를 파야 했다.",
-  eng: ["Each", "boy", "had", "to", "dig", "one", "hole", "every", "day", "."],
+  kor: "저는 무엇을 해야 할지 모르겠어요.",
+  eng: ["I", "don", "’", "t", "know", "what", "to", "do", "."],
 },
 
 {
-  kor: "깊이와 너비가 각각 약 150cm여야 했다.",
-  eng: ["It", "had", "to", "be", "about", "150cm", "deep", "and", "150cm", "wide", "."],
+  kor: "어디 봅시다. 지난 몇 주간 용돈의 80%를 쓰고 20%만을 저축했군요.",
+  eng: ["Let", "’", "s", "see", ".", "In", "the", "last", "few", "weeks", ",", "you", "spent", "80", "of", "your", "allowance", "and", "only", "saved", "20", "."],
 },
 
 {
-  kor: "Mr. Sir는 “너희가 캐는 것은 인성을 기르기 위해서야.”라고 말했다.",
-  eng: ["Mr", ".", "Sir", "said", ",", "“", "You", "are", "digging", "to", "build", "character", ".", "”"],
+  kor: "나는 당신이 돈을 너무 많이 써 오고 있다고 생각해요.",
+  eng: ["I", "think", "you", "’", "ve", "been", "spending", "too", "much", "."],
 },
 
 {
-  kor: "스탠리가 더 많이 팔수록 그는 더 강해졌다.",
-  eng: ["The", "more", "Stanley", "dug", ",", "the", "stronger", "he", "became", "."],
+  kor: "돈을 모으기 위해서는 더 빠듯한 예산을 세울 필요가 있어요.",
+  eng: ["To", "save", "money", ",", "you", "need", "to", "have", "a", "tighter", "budget", "."],
 },
 
 {
-  kor: "매일 구덩이를 파는 데 걸리는 시간이 줄어들었다.",
-  eng: ["It", "took", "less", "time", "to", "finish", "his", "hole", "each", "day", "."],
+  kor: "예를 들어, 50%-40%-10% 규칙을 따를 수 있어요.",
+  eng: ["For", "example", ",", "you", "can", "follow", "the", "50", "-40", "-10", "rule", "."],
 },
 
 {
-  kor: "두 번째 주에 스탠리가 구덩이를 거의 마무리할 때 흙 속에서 반짝이는 것을 발견했다.",
-  eng: ["In", "his", "second", "week", ",", "as", "Stanley", "was", "finishing", "his", "hole", ",", "he", "saw", "something", "shiny", "in", "the", "dirt", "."],
+  kor: "50%를 저축하고, 40%를 쓰고, 남은 10%를 자선 단체에 기부하세요.",
+  eng: ["Save", "50", ",", "spend", "40", ",", "and", "donate", "the", "remaining", "10", "to", "charity", "."],
 },
 
 {
-  kor: "스탠리의 심장은 빠르게 뛰기 시작했다.",
-  eng: ["Stanley", "’", "s", "heart", "beat", "faster", "."],
+  kor: "이 규칙을 따름으로써 돈을 더 잘 관리할 수 있어요.",
+  eng: ["By", "following", "the", "rule", ",", "you", "can", "manage", "your", "money", "better", "."],
 },
 
 {
-  kor: "흥미로운 것을 찾으면 하루 휴가를 준다는 말을 들은 적이 있었다.",
-  eng: ["He", "heard", "that", "anyone", "who", "found", "something", "interesting", "would", "be", "given", "the", "day", "off", "."],
+  kor: "그러면 그 티켓을 사기 위해서 돈을 더 빨리 모을 수 있답니다.",
+  eng: ["Then", "you", "can", "save", "money", "faster", "to", "buy", "the", "ticket", "."],
 },
 
 {
-  kor: "스탠리는 조심스럽게 반짝이는 물체를 집어들어 흙을 털어냈다.",
-  eng: ["He", "carefully", "picked", "up", "the", "shiny", "object", "and", "brushed", "off", "the", "dirt", "."],
+  kor: "저는 민지예요. 저는 할인 판매하는 물건을 사는 것을 좋아해요.",
+  eng: ["I", "’", "m", "Minji", ".", "I", "like", "to", "buy", "things", "on", "sale", "."],
 },
 
 {
-  kor: "작고 금빛이 도는 관 모양의 물체였다.",
-  eng: ["It", "was", "a", "small", "gold", "tube", "."],
+  kor: "어떤 물건이 할인 판매를 하면 그것이 필요하지 않아도 사요.",
+  eng: ["If", "something", "’", "s", "on", "sale", ",", "I", "buy", "it", "although", "I", "don", "’", "t", "need", "it", "."],
 },
 
 {
-  kor: "너무 가벼워서 진짜 금관일 리는 없었다.",
-  eng: ["But", "it", "couldn", "’", "t", "be", "real", "gold", "since", "it", "was", "too", "light", "."],
+  kor: "지난주에는 할인 판매하는 티셔츠 두 장을 샀지만 저는 이미 티셔츠가 많아요.",
+  eng: ["Last", "week", ",", "I", "bought", "two", "T-shirts", "on", "sale", ",", "but", "I", "already", "have", "many", "."],
 },
 
 {
-  kor: "관 밑부분에는 KB라는 두 글자가 새겨져 있었다.",
-  eng: ["There", "were", "two", "letters", ",", "KB", ",", "at", "the", "bottom", "of", "the", "tube", "."],
+  kor: "자신에게 필요한 물건을 산다면 할인 판매하는 물건을 사는 것은 좋습니다.",
+  eng: ["Buying", "things", "on", "sale", "is", "good", "if", "you", "buy", "things", "you", "need", "."],
 },
 
 {
-  kor: "KB는 무엇을 뜻하는 걸까?",
-  eng: ["What", "did", "KB", "stand", "for", "?"],
+  kor: "당신의 경우, 문제는 필요하지도 않은 물건을 산다는 것이에요.",
+  eng: ["In", "your", "case", ",", "the", "problem", "is", "that", "you", "buy", "things", "you", "don", "’", "t", "even", "need", "."],
 },
 
 {
-  kor: "스탠리의 심장은 더욱 빠르게 뛰었다.",
-  eng: ["Stanley", "’", "s", "heart", "beat", "even", "faster", "."],
+  kor: "여기 몇 가지 조언이 있어요.",
+  eng: ["Here", "’", "s", "some", "advice", "."],
+},
+
+{
+  kor: "무언가를 사기 전에 “이것이 정말 필요한가?”라고 스스로에게 물어보세요.",
+  eng: ["Before", "you", "buy", "something", ",", "ask", "yourself", ",", "“", "Do", "I", "really", "need", "this", "?", "”"],
+},
+
+{
+  kor: "또한 쇼핑하러 가기 전에 쇼핑 목록을 만드세요.",
+  eng: ["Also", ",", "before", "you", "go", "shopping", ",", "make", "a", "shopping", "list", "."],
+},
+
+{
+  kor: "물건들이 할인 판매 중이라고 해도 목록에 없는 물건들은 사지 마세요.",
+  eng: ["Don", "’", "t", "buy", "items", "that", "aren", "’", "t", "on", "the", "list", "even", "if", "they", "’", "re", "on", "sale", "."],
+},
+
+{
+  kor: "그러면 즉석에서 물건을 사지 않을 거예요.",
+  eng: ["Then", "you", "won", "’", "t", "buy", "things", "on", "the", "spot", "."],
 },
         ]
       },
       {
-        title: "Lesson 5 - From Trash to Music",
+        title: "Lesson 5 - A Surprise",
         problems: [
-{
-  kor: "기쁨의 눈물이 내 뺨을 타고 흐른다.",
-  eng: ["Tears", "of", "joy", "are", "rolling", "down", "my", "cheeks", "."],
-},
-
-{
-  kor: "나는 너무 행복하고 감격스럽다.",
-  eng: ["I", "’", "m", "so", "happy", "and", "thrilled", "."],
-},
-
-{
-  kor: "내가 새라면 날아오를 것만 같다.",
-  eng: ["If", "I", "were", "a", "bird", ",", "I", "would", "fly", "."],
-},
-
-{
-  kor: "주위를 둘러본다.",
-  eng: ["I", "look", "around", "."],
-},
-
-{
-  kor: "내 오케스트라의 다른 단원들이 서로를 끌어안고 있다.",
-  eng: ["The", "other", "members", "in", "my", "orchestra", "are", "hugging", "one", "another", "."],
-},
-
-{
-  kor: "우리의 연주회가 막 끝났고 모두가 일어나 커다란 박수를 보내고 있다.",
-  eng: ["Our", "concert", "has", "just", "finished", "and", "everyone", "is", "standing", "and", "giving", "us", "a", "big", "hand", "."],
-},
-
-{
-  kor: "우리 중 누구도 이 날이 올 거라고는 생각하지 못했다.",
-  eng: ["None", "of", "us", "ever", "expected", "that", "this", "day", "would", "come", "."],
-},
-
-{
-  kor: "긴 여정이었다.",
-  eng: ["It", "has", "been", "a", "long", "journey", "."],
-},
-
-{
-  kor: "내 이름은 안드레아이고 나는 재활용 오케스트라의 바이올린 연주자다.",
-  eng: ["My", "name", "is", "Andrea", "and", "I", "’", "m", "a", "violinist", "in", "the", "Recycled", "Orchestra", "."],
-},
-
-{
-  kor: "왜 ‘재활용 오케스트라’라고 불릴까?",
-  eng: ["Why", "is", "it", "called", "the", "Recycled", "Orchestra", "?"],
-},
-
-{
-  kor: "그 이유는 우리의 악기가 모두 쓰레기 매립지에서 나온 물건으로 만들어졌기 때문이다.",
-  eng: ["It", "’", "s", "because", "our", "musical", "instruments", "are", "made", "of", "objects", "from", "a", "landfill", "."],
-},
-
-{
-  kor: "그래서 ‘매립지 하모닉 오케스트라’라고도 불린다.",
-  eng: ["That", "’", "s", "why", "it", "’", "s", "also", "known", "as", "the", "Landfill", "Harmonic", "Orchestra", "."],
-},
-
-{
-  kor: "우리 오케스트라의 대부분은 파라과이의 작은 마을 카테우라 출신이다.",
-  eng: ["Most", "of", "us", "in", "the", "orchestra", "are", "from", "Cateura", ",", "a", "small", "town", "in", "Paraguay", "."],
-},
-
-{
-  kor: "우리 마을에는 거대한 쓰레기 매립지가 있다.",
-  eng: ["There", "is", "a", "huge", "landfill", "in", "our", "town", "."],
-},
-
-{
-  kor: "어떤 사람들은 카테우라 자체가 거대한 매립지라고 말하기도 한다.",
-  eng: ["Some", "people", "even", "say", "that", "Cateura", "itself", "is", "a", "giant", "landfill", "."],
-},
-
-{
-  kor: "우리 중 많은 사람이 가난하다.",
-  eng: ["Many", "of", "us", "are", "poor", "."],
-},
-
-{
-  kor: "우리 마을에는 희망과 꿈이 별로 없었다.",
-  eng: ["There", "weren", "’", "t", "many", "hopes", "and", "dreams", "in", "our", "town", "."],
-},
-
-{
-  kor: "하지만 파비오 차베스를 만난 후 모든 것이 변하기 시작했다.",
-  eng: ["Everything", "began", "to", "change", ",", "however", ",", "when", "we", "met", "Favio", "Ch", "vez", "."],
-},
-
-{
-  kor: "파비오는 환경 교육자이자 음악가였다.",
-  eng: ["Favio", "was", "an", "environmental", "educator", "and", "a", "musician", "."],
-},
-
-{
-  kor: "그는 우리에게 음악을 가르치고 싶었지만 큰 문제가 있었다.",
-  eng: ["He", "wanted", "to", "teach", "us", "music", ",", "but", "there", "was", "a", "big", "problem", "."],
-},
-
-{
-  kor: "마을 전체에 악기가 몇 개밖에 없었다.",
-  eng: ["There", "were", "only", "a", "few", "musical", "instruments", "in", "the", "whole", "town", "."],
-},
-
-{
-  kor: "새 악기를 살 형편이 되지 않았다.",
-  eng: ["We", "couldn", "’", "t", "afford", "to", "buy", "new", "ones", "."],
-},
-
-{
-  kor: "그러나 파비오는 포기하지 않았다.",
-  eng: ["But", "Favio", "didn", "’", "t", "give", "up", "."],
-},
-
-{
-  kor: "그는 매립지의 물건들로 악기를 만들 수 있다고 말했다.",
-  eng: ["He", "said", "that", "we", "could", "make", "musical", "instruments", "with", "objects", "from", "the", "landfill", "."],
-},
-
-{
-  kor: "니콜라스라는 재능 있는 사람이 이 아이디어를 실제로 구현해냈다.",
-  eng: ["A", "talented", "man", "named", "Nicholas", "was", "able", "to", "put", "this", "idea", "into", "practice", "."],
-},
-
-{
-  kor: "그는 기름 통으로 바이올린을 만들었다.",
-  eng: ["He", "made", "violins", "from", "oil", "drums", "."],
-},
-
-{
-  kor: "그는 수도관을 플루트로 바꾸었다.",
-  eng: ["He", "turned", "water", "pipes", "into", "flutes", "."],
-},
-
-{
-  kor: "우리는 또 다른 문제에 부딪혔다.",
-  eng: ["We", "had", "another", "problem", "."],
-},
-
-{
-  kor: "아무도 악기를 다룰 줄 몰랐다.",
-  eng: ["No", "one", "knew", "how", "to", "play", "musical", "instruments", "."],
-},
-
-{
-  kor: "음악 악보 읽는 법조차 몰랐다.",
-  eng: ["We", "didn", "’", "t", "even", "know", "how", "to", "read", "music", "."],
-},
-
-{
-  kor: "파비오는 큰 인내심을 가지고 우리를 가르쳤다.",
-  eng: ["Favio", "taught", "us", "with", "great", "patience", "."],
-},
-
-{
-  kor: "한 걸음씩 악기로 소리를 내기 시작했다.",
-  eng: ["Step", "by", "step", ",", "we", "began", "to", "make", "some", "sounds", "on", "our", "instruments", "."],
-},
-
-{
-  kor: "내가 우리가 처음 연주한 곡이 아직도 기억난다.",
-  eng: ["I", "still", "remember", "the", "first", "piece", "of", "music", "that", "we", "played", "."],
-},
-
-{
-  kor: "아주 짧았고 음정도 대부분 맞지 않았다.",
-  eng: ["It", "was", "very", "short", "and", "mostly", "out", "of", "tune", "."],
-},
-
-{
-  kor: "그러나 우리에게는 가장 아름다운 음악이었다.",
-  eng: ["But", "it", "was", "the", "most", "beautiful", "music", "to", "us", "."],
-},
-
-{
-  kor: "우리의 마음속에 새로운 희망이 차올랐다.",
-  eng: ["We", "felt", "a", "new", "hope", "in", "our", "hearts", "."],
-},
-
-{
-  kor: "그때부터 우리는 매일 모여 연습했다.",
-  eng: ["From", "then", "on", ",", "we", "gathered", "to", "practice", "every", "day", "."],
-},
-
-{
-  kor: "어느 날 파비오는 우리에게 기쁜 소식을 전했다.",
-  eng: ["One", "day", ",", "Favio", "told", "us", "some", "great", "news", "."],
-},
-
-{
-  kor: "우리는 콘서트를 열 예정이었다. 진짜 콘서트였다!",
-  eng: ["We", "were", "going", "to", "have", "a", "concert", ",", "a", "real", "concert", "!"],
-},
-
-{
-  kor: "그리고 지금 우리는 수백 명 앞에 서 있다.",
-  eng: ["And", "here", "we", "are", "now", "in", "front", "of", "hundreds", "of", "people", "."],
-},
-
-{
-  kor: "그들은 우리 음악을 사랑한다.",
-  eng: ["They", "love", "our", "music", "."],
-},
-
-{
-  kor: "세상은 우리에게 쓰레기를 보내지만, 우리는 음악을 돌려준다!",
-  eng: ["The", "world", "sends", "us", "trash", ",", "but", "we", "send", "back", "music", "!"],
-},
+          {
+            kor: "그 앞에 서 있는 남자는 L. J. Richards이다!",
+            eng: ["The", "man", "who", "is", "standing", "in", "front", "of", "him", "is", "L.", "J.", "Richards!"],
+          },
+          {
+            kor: "\"감사합니다만 저는 우승자가 아니에요.\" Max가 말한다.",
+            eng: ["\"Thank", "you,", "but", "I'm", "not", "the", "winner,\"", "says", "Max."],
+          },
         ]
       },
       {
