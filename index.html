@@ -1,16 +1,11 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>목일일중3 교과서 배열영작 [ 목동서로 영어학원 ]</title>
+  <title>목일중3 [ 목동서로 영어학원 ]</title>
   <style>
     body { font-family: 'Arial Rounded MT Bold', Arial, sans-serif; padding: 24px; background: #f6f8fa; }
-    .header {
-      background: #3b82f6; color: #fff; padding: 32px 0 24px 0; text-align: center;
-      font-size: 1.3rem; letter-spacing: 1px; font-weight: bold; box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-      margin-bottom: 18px; border-radius: 0 0 28px 28px;
-      position: relative; display: flex; justify-content: center; align-items: center;
-    }
+    .header { background: #3b82f6; color: #fff; padding: 32px 0 24px 0; text-align: center; font-size: 1.3rem; letter-spacing: 1px; font-weight: bold; box-shadow: 0 4px 16px rgba(0,0,0,0.07); margin-bottom: 18px; border-radius: 0 0 28px 28px; position: relative; display: flex; justify-content: center; align-items: center; }
     .lesson-select-bar { display:flex; justify-content: center; align-items:center; gap:16px; margin-bottom: 18px; flex-wrap:wrap;}
     .lesson-select-bar select { font-size:1.1em; padding: 5px 15px; border-radius: 8px; border:1.5px solid #2563eb;}
     .lesson-select-bar .jumpbtn { background:#2563eb; color:#fff; border:none; border-radius:7px; padding:7px 16px; font-weight:bold; cursor:pointer; margin-right:6px;}
@@ -23,18 +18,19 @@
     .word { border: none; border-radius: 10px; padding: 13px 22px; font-size: 1.2em; cursor: pointer; transition: background 0.15s, transform 0.1s; box-shadow: 0 1px 6px #2563eb18; }
     .answer .word { background: #e0e7ef; color: #1e293b; font-weight: bold;}
     .pool .word { background: #2563eb; color: #fff; font-weight: bold;}
-    .pool .word:hover { background: #1d4ed8; transform: scale(1.08);}
+    .pool .word:hover { background:#1d4ed8; transform: scale(1.08);}
     .ctrl { margin-bottom: 8px;}
     .ctrl button { padding: 8px 22px; font-size: 1.1em; border-radius: 9px; border: none; background: #3b82f6; color: #fff; cursor: pointer; margin-right: 8px; margin-bottom: 5px; font-weight: bold;}
     .ctrl button:active { background: #2563eb; }
     .result { font-size: 1.14em; font-weight: bold; color: #d97706; margin-top: 10px; min-height: 28px;}
+    .answer-sentence { margin-top:4px; color:#374151; font-size:1.04em; }
     #lesson-nav { margin: 46px 0 15px 0; text-align: center;}
     #lesson-nav button { margin: 0 18px; padding: 11px 34px; font-size: 1.12em; border-radius: 12px; background: #2563eb; color: #fff; border:none; font-weight:bold;}
     #lesson-nav button:active { background:#194ca0;}
     @media (max-width:600px) {
       .problem-block { padding:12px 6px 18px 6px;}
       .word { padding: 9px 11px; font-size:1em;}
-      .ctrl button { padding: 7px 13px; font-size: 1em;}
+      .ctrl button { padding: 7px 13px; font-size:1em;}
       #lesson-nav button { padding: 8px 15px; font-size:1em;}
     }
     .home-btn-ko {
@@ -53,7 +49,7 @@
 <body>
   <div class="header">
     <a href="https://nmyway77.github.io/home2/" class="home-btn-ko" title="홈으로 이동">홈으로</a>
-    목일중3 교과서배열영작[목동서로영어학원]
+    목일중3 [목동서로영어학원]
   </div>
   <div class="lesson-select-bar">
     <select id="lessonSelect" onchange="goToLesson(this.value)"></select>
@@ -67,11 +63,9 @@
     <button onclick="nextLesson()">다음 과</button>
   </div>
   <script>
-    // 1~10과 샘플 데이터 (1과만 예시, 2~10은 샘플 문제)
+    // 20개 과(lesson) 샘플 데이터, 각 lesson.problems 배열에 여러 개 문제 넣을 수 있음!
     const lessons = [
-      {
-        title: "Lesson 1 - Find a Dream and Live It!",
-        problems: [
+      { title: "Lesson 1-Discovering Yourself through Challenges", problems: [
 {
   kor: "꿈을 찾아 이루어라!",
   eng: ["Find", "a", "Dream", "and", "Live", "It", "!"],
@@ -312,7 +306,7 @@
         ]
       },
       {
-        title: "Lesson 3 - English Words of Foreign Origin",
+        title: "Lesson 3 - Paint a Better Tomorrow",
         problems: [
 {
   kor: "영어는 다른 문화나 언어에서 단어를 종종 빌려 왔다.",
@@ -451,7 +445,7 @@
         ]
       },
       {
-        title: "Lesson 4 - Be a Smart Spender",
+        title: "Lesson 4 - HOLES",
         problems: [
 {
   kor: "더 열심히 파, 스탠리! 더 세게 팔수록 더 빨리 끝낼 수 있어!” 하고 Mr. Sir가 소리쳤다.",
@@ -856,82 +850,53 @@
   kor: "세상은 우리에게 쓰레기를 보내지만, 우리는 음악을 돌려준다!",
   eng: ["The", "world", "sends", "us", "trash", ",", "but", "we", "send", "back", "music", "!"],
 },
-        ]
-      },
-      {
-        title: "Lesson 6 - Encouragement",
-        problems: [
-          {
-            kor: "\"정말 아슬아슬한 경기였어. 너는 비록 경기에서 우승하지 못했지만 최선을 다했잖니. 중요한 것은 바로 그거란다!\" L. J. Richards가 말한다.",
-            eng: ["\"It", "was", "a", "real", "close", "race.", "Even", "though", "you", "didn't", "win", "the", "race,", "you", "did", "your", "best.", "That's", "the", "thing", "that", "counts!\"", "says", "L.", "J.", "Richards."],
-          },
-          {
-            kor: "'내가 최선을 다했었나?' Max는 생각한다.",
-            eng: ["'Did", "I", "do", "my", "best?'", "thinks", "Max."],
-          },
-        ]
-      },
-      {
-        title: "Lesson 7 - After the Race",
-        problems: [
-          {
-            kor: "잠시 후에 그는 미소를 짓는다.",
-            eng: ["After", "a", "moment,", "he", "smiles."],
-          },
-          {
-            kor: "\"네, 저는 최선을 다했다고 생각해요.\"",
-            eng: ["\"Yeah,", "I", "guess", "I", "did.\""],
-          },
-        ]
-      },
-      {
-        title: "Lesson 8 - The Winner",
-        problems: [
-          {
-            kor: "카트들이 급히 달려 결승선을 지나간다.",
-            eng: ["The", "karts", "rush", "across", "the", "finish", "line."],
-          },
-          {
-            kor: "누가 우승자일까?",
-            eng: ["Who", "is", "the", "winner?"],
-          },
-        ]
-      },
-      {
-        title: "Lesson 9 - New Friends",
-        problems: [
-          {
-            kor: "Max와 Simon은 서로를 축하해준다.",
-            eng: ["Max", "and", "Simon", "congratulate", "each", "other."],
-          },
-          {
-            kor: "두 사람은 함께 사진을 찍는다.",
-            eng: ["They", "take", "a", "picture", "together."],
-          },
-        ]
-      },
-      {
-        title: "Lesson 10 - Looking Ahead",
-        problems: [
-          {
-            kor: "Max는 다음 경기를 기대한다.",
-            eng: ["Max", "looks", "forward", "to", "the", "next", "race."],
-          },
-          {
-            kor: "그는 다시 도전할 준비가 되어 있다.",
-            eng: ["He", "is", "ready", "to", "try", "again."],
-          },
-        ]
-      },
-      { title: "Lesson 2", problems: [{ kor: "예시 문제입니다.", eng: ["Sample", "problem"] }] },
-      { title: "Lesson 3", problems: [{ kor: "예시 문제입니다.", eng: ["Sample", "problem"] }] },
-      { title: "Lesson 4", problems: [{ kor: "예시 문제입니다.", eng: ["Sample", "problem"] }] },
-      { title: "Lesson 5", problems: [{ kor: "예시 문제입니다.", eng: ["Sample", "problem"] }] },
-      { title: "Lesson 6", problems: [{ kor: "예시 문제입니다.", eng: ["Sample", "problem"] }] },
-      { title: "Lesson 7", problems: [{ kor: "예시 문제입니다.", eng: ["Sample", "problem"] }] },
-      { title: "Lesson 8", problems: [{ kor: "예시 문제입니다.", eng: ["Sample", "problem"] }] },
-      { title: "Lesson 9", problems: [{ kor: "예시 문제입니다.", eng: ["Sample", "problem"] }] },
-      { title: "Lesson 10", problems: [{ kor: "예시 문제입니다.", eng: ["Sample", "problem"] }] },
+    
+        ] },
+      { title: "Lesson 6", problems: [
+          { kor: "비가 오고 있다.", eng: ["It", "is", "raining", "."] },
+        ] },
+      { title: "Lesson 7", problems: [
+          { kor: "나는 저녁을 요리한다.", eng: ["I", "cook", "dinner", "."] },
+        ] },
+      { title: "Lesson 8", problems: [
+          { kor: "그들은 영화를 본다.", eng: ["They", "watch", "a", "movie", "."] },
+        ] },
+      { title: "Lesson 9", problems: [
+          { kor: "우리는 친구다.", eng: ["We", "are", "friends", "."] },
+        ] },
+      { title: "Lesson 10", problems: [
+          { kor: "그는 농구를 한다.", eng: ["He", "plays", "basketball", "."] },
+        ] },
+      { title: "Lesson 11", problems: [
+          { kor: "나는 책을 읽는다.", eng: ["I", "read", "a", "book", "."] },
+        ] },
+      { title: "Lesson 12", problems: [
+          { kor: "그녀는 노래를 잘 부른다.", eng: ["She", "sings", "well", "."] },
+        ] },
+      { title: "Lesson 13", problems: [
+          { kor: "강아지는 귀엽다.", eng: ["The", "puppy", "is", "cute", "."] },
+        ] },
+      { title: "Lesson 14", problems: [
+          { kor: "나는 자전거를 탄다.", eng: ["I", "ride", "a", "bicycle", "."] },
+        ] },
+      { title: "Lesson 15", problems: [
+          { kor: "그들은 축구를 한다.", eng: ["They", "play", "soccer", "."] },
+        ] },
+      { title: "Lesson 16", problems: [
+          { kor: "나는 수영을 잘한다.", eng: ["I", "can", "swim", "well", "."] },
+        ] },
+      { title: "Lesson 17", problems: [
+          { kor: "엄마가 밥을 만든다.", eng: ["My", "mom", "cooks", "rice", "."] },
+        ] },
+      { title: "Lesson 18", problems: [
+          { kor: "나는 매일 운동장에 간다.", eng: ["I", "go", "to", "the", "playground", "every", "day", "."] },
+        ] },
+      { title: "Lesson 19", problems: [
+          { kor: "그녀는 매일 아침 일찍 일어난다.", eng: ["She", "gets", "up", "early", "every", "morning", "."] },
+        ] },
+      { title: "Lesson 20", problems: [
+          { kor: "나는 한국 음식을 좋아한다.", eng: ["I", "like", "Korean", "food", "."] },
+        ] }
     ];
 
     let lessonIdx = 0;
@@ -947,11 +912,9 @@
       }
     }
     function renderLessonSelectBar() {
-      // 드롭다운
       const sel = document.getElementById('lessonSelect');
       sel.innerHTML = lessons.map((l, i) =>
         `<option value="${i}" ${i===lessonIdx?'selected':''}>${l.title}</option>`).join('');
-      // 버튼 목차
       const jumpDiv = document.getElementById('lessonJumpBtns');
       jumpDiv.innerHTML = lessons.map((l,i)=>
         `<button class="jumpbtn${i===lessonIdx?' active':''}" onclick="goToLesson(${i})">${i+1}과</button>`
@@ -967,7 +930,7 @@
       lesson.problems.forEach((prob, i) => {
         let state = problemStates[i];
         if (!state) {
-          state = { chosen: [], pool: shuffle(prob.eng), result: "" };
+          state = { chosen: [], pool: shuffle(prob.eng), result: "", showAnswer: false };
           problemStates[i] = state;
         }
         const pb = document.createElement("div");
@@ -986,11 +949,13 @@
             <button onclick="checkAnswer(${i})">정답 확인</button>
           </div>
           <div class="result" id="result-${i}">${state.result||""}</div>
+          <div class="answer-sentence" style="margin-top:4px;color:#374151;font-size:1.04em;${state.showAnswer?'':'display:none'}">
+            정답문장: <span style="color:#2563eb;">${prob.eng.join(' ')}</span>
+          </div>
         `;
         container.appendChild(pb);
       });
 
-      // 드래그 앤 드롭 최적화: onSort에서 renderLesson() 호출 X
       lesson.problems.forEach((prob, i) => {
         Sortable.create(document.getElementById(`ans-${i}`), {
           group: `words${i}`,
@@ -1001,26 +966,21 @@
             const ansElem = document.getElementById(`ans-${i}`);
             state.chosen = Array.from(ansElem.children).map(btn => btn.textContent);
             state.result = "";
-            // renderLesson(); // (최적화) 순서만 바꿀 때는 전체 다시 그리지 않음!
           },
           onAdd: function(evt) {
-            // pool → answer로 올 때 원하는 위치에 삽입!
             const state = problemStates[i];
             const ansElem = document.getElementById(`ans-${i}`);
             const poolElem = document.getElementById(`pool-${i}`);
             const newIdx = evt.newIndex;
             const movedWord = evt.item.textContent;
-            // pool에서 해당 단어 제거
             const poolIdx = state.pool.indexOf(movedWord);
             if(poolIdx > -1) state.pool.splice(poolIdx,1);
-            // answer에서 기존 추가를 방지
             state.chosen = Array.from(ansElem.children).map(btn => btn.textContent);
             const existIdx = state.chosen.lastIndexOf(movedWord);
             if(existIdx > -1) state.chosen.splice(existIdx,1);
-            // 원하는 위치에 삽입
             state.chosen.splice(newIdx, 0, movedWord);
             state.result = "";
-            renderLesson(); // 실제로 풀에서 단어를 옮긴 경우에만 renderLesson 호출!
+            renderLesson();
           }
         });
         Sortable.create(document.getElementById(`pool-${i}`), {
@@ -1043,6 +1003,7 @@
       state.chosen.push(state.pool[wIdx]);
       state.pool.splice(wIdx, 1);
       state.result = "";
+      state.showAnswer = false;
       renderLesson();
     }
     function removeWord(pIdx, wIdx) {
@@ -1050,6 +1011,7 @@
       state.pool.push(state.chosen[wIdx]);
       state.chosen.splice(wIdx, 1);
       state.result = "";
+      state.showAnswer = false;
       renderLesson();
     }
     function undoLastWord(pIdx) {
@@ -1057,22 +1019,28 @@
       if (state.chosen.length > 0) {
         state.pool.push(state.chosen.pop());
         state.result = "";
+        state.showAnswer = false;
         renderLesson();
       }
     }
     function resetSentence(pIdx) {
       let prob = lessons[lessonIdx].problems[pIdx];
-      problemStates[pIdx] = { chosen: [], pool: shuffle(prob.eng), result: "" };
+      problemStates[pIdx] = { chosen: [], pool: shuffle(prob.eng), result: "", showAnswer: false };
       renderLesson();
     }
     function checkAnswer(pIdx) {
       let prob = lessons[lessonIdx].problems[pIdx];
       let state = problemStates[pIdx];
-      if (state.chosen.join(' ') === prob.eng.join(' ')) {
-        state.result = "정답입니다! 🎉";
-        speak(prob.eng.join(' '));
+      state.showAnswer = !state.showAnswer;
+      if (state.showAnswer) {
+        if (state.chosen.join(' ') === prob.eng.join(' ')) {
+          state.result = "정답입니다! 🎉";
+          speak(prob.eng.join(' '));
+        } else {
+          state.result = "아쉽지만 정답이 아닙니다. 다시 시도해보세요.";
+        }
       } else {
-        state.result = "아쉽지만 정답이 아닙니다. 다시 시도해보세요.";
+        state.result = "";
       }
       renderLesson();
     }
