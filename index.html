@@ -1,1073 +1,247 @@
-  <!DOCTYPE html>
+ 
+ <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>목일중3 [ 목동서로 영어학원 ]</title>
+  <title>목일중3 배열영작</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
   <style>
-    body { font-family: 'Arial Rounded MT Bold', Arial, sans-serif; padding: 24px; background: #f6f8fa; }
-    .header { background: #3b82f6; color: #fff; padding: 32px 0 24px 0; text-align: center; font-size: 1.3rem; letter-spacing: 1px; font-weight: bold; box-shadow: 0 4px 16px rgba(0,0,0,0.07); margin-bottom: 18px; border-radius: 0 0 28px 28px; position: relative; display: flex; justify-content: center; align-items: center; }
-    .lesson-select-bar { display:flex; justify-content: center; align-items:center; gap:16px; margin-bottom: 18px; flex-wrap:wrap;}
-    .lesson-select-bar select { font-size:1.1em; padding: 5px 15px; border-radius: 8px; border:1.5px solid #2563eb;}
-    .lesson-select-bar .jumpbtn { background:#2563eb; color:#fff; border:none; border-radius:7px; padding:7px 16px; font-weight:bold; cursor:pointer; margin-right:6px;}
-    .lesson-select-bar .jumpbtn.active { background: #dbeafe; color:#1e293b; border:1px solid #2563eb;}
-    .lesson-select-bar .jumpbtn:hover { background:#1d4ed8;}
-    .lesson-title { font-size:1.5em; margin-bottom: 32px; color: #1e293b; font-weight: bold; text-align: center;}
-    .problem-block { background: #fff; margin-bottom: 38px; padding: 24px 16px 24px 16px; border-radius: 20px; box-shadow: 0 4px 18px #0001; border-left: 8px solid #3b82f6;}
-    .kor { font-size:1.22em; font-weight: bold; color: #2563eb; margin-bottom:16px;}
-    .sortable { display: flex; flex-wrap: wrap; min-height: 54px; gap: 14px; margin-bottom: 13px; }
-    .word { border: none; border-radius: 10px; padding: 13px 22px; font-size: 1.2em; cursor: pointer; transition: background 0.15s, transform 0.1s; box-shadow: 0 1px 6px #2563eb18; }
-    .answer .word { background: #e0e7ef; color: #1e293b; font-weight: bold;}
-    .pool .word { background: #2563eb; color: #fff; font-weight: bold;}
-    .pool .word:hover { background:#1d4ed8; transform: scale(1.08);}
-    .ctrl { margin-bottom: 8px;}
-    .ctrl button { padding: 8px 22px; font-size: 1.1em; border-radius: 9px; border: none; background: #3b82f6; color: #fff; cursor: pointer; margin-right: 8px; margin-bottom: 5px; font-weight: bold;}
-    .ctrl button:active { background: #2563eb; }
-    .result { font-size: 1.14em; font-weight: bold; color: #d97706; margin-top: 10px; min-height: 28px;}
-    .answer-sentence { margin-top:4px; color:#374151; font-size:1.04em; }
-    #lesson-nav { margin: 46px 0 15px 0; text-align: center;}
-    #lesson-nav button { margin: 0 18px; padding: 11px 34px; font-size: 1.12em; border-radius: 12px; background: #2563eb; color: #fff; border:none; font-weight:bold;}
-    #lesson-nav button:active { background:#194ca0;}
-    @media (max-width:600px) {
-      .problem-block { padding:12px 6px 18px 6px;}
-      .word { padding: 9px 11px; font-size:1em;}
-      .ctrl button { padding: 7px 13px; font-size:1em;}
-      #lesson-nav button { padding: 8px 15px; font-size:1em;}
-    }
-    .home-btn-ko {
-      position: absolute; left: 26px; top: 22px; background: #fff; color: #2563eb;
-      border: none; border-radius: 15px; padding: 12px 22px; font-size: 1.16rem; font-weight: bold;
-      box-shadow: 0 2px 8px #0001; cursor: pointer; text-decoration: none; z-index: 2;
-      transition: background 0.15s, color 0.15s;
-    }
-    .home-btn-ko:hover { background: #dbeafe; color: #1e293b; }
-    @media (max-width:600px) {
-      .home-btn-ko { left: 9px; top: 8px; padding: 7px 13px; font-size: .97em;}
+    body { font-family: 'Arial Rounded MT Bold', Arial, sans-serif; background:#fff; margin:0; }
+    .header { background: #3b82f6; color: #fff; font-size: 1.5rem; font-weight: bold; box-shadow: 0 4px 16px rgba(0,0,0,0.07); margin-bottom: 18px; border-radius: 0 0 38px 38px; min-height: 68px; display: flex; align-items: center; justify-content: center; position: relative; padding: 0 14px;}
+    .home-btn { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); background: #fff; color: #2563eb; font-size: 1.09rem; border: none; border-radius: 17px; padding: 8px 21px; font-weight: bold; cursor: pointer; text-decoration: none; box-shadow: 0 2px 9px #0001; z-index: 2; transition: background 0.15s, color 0.15s; white-space: nowrap; min-width: 82px; }
+    .home-btn:active, .home-btn:focus, .home-btn:hover { background: #eaf1ff; color: #1552b8; text-decoration: underline;}
+    .header-title { margin: 0 auto; text-align: center; font-size: 1.22em; font-weight: bold; letter-spacing: -1px; line-height: 1.1; width: 100%; max-width: 100vw; padding: 14px 0; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+    .mainbar { max-width: 550px; margin: 15px auto 0 auto; display:flex; flex-direction:column; align-items:center; gap:12px; }
+    .lesson-select { padding: 9px 10px; border: 1.3px solid #2563eb; border-radius: 10px; font-size: 1.04rem; background: #fff; color: #222; width: 100%; max-width:98vw; min-width:140px; margin-bottom: 5px;}
+    .main-title { text-align: center; font-size: 1.28rem; font-weight: bold; margin: 18px 0 9px 0; color: #23243a;}
+    .section-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 8px 0 0 0; width: 100%;}
+    .section-tab { background: #eee; color: #212a35; border:none; border-radius: 7px; padding: 6px 18px; font-size: 1.02rem; cursor:pointer; transition: background 0.14s, color 0.14s; font-weight: 500; margin-bottom: 3px;}
+    .section-tab.selected { background: #2563eb; color:#fff; }
+    .content-box { max-width: 96vw; min-height: 70px; margin: 22px auto 0 auto; border-radius:18px; background:#fff; box-shadow:0 6px 20px #e5eaf5; padding: 18px 8px 18px 8px; }
+    .sentence-row { display: flex; align-items: flex-start; margin-bottom: 18px; }
+    .sentence-content { flex: 1; }
+    .en { font-size: 1.07rem; background: #fff; border: 1px solid #e3e3e3; border-radius: 9px; padding: 12px 10px; min-width: 60vw; word-break: break-all; margin-bottom: 2px; color:#2563eb;}
+    .sortable { display: flex; flex-wrap: wrap; min-height: 54px; gap: 11px; margin-bottom: 11px;}
+    .eng-build .word, .eng-ans .word { background: #2563eb; color: #fff; border: none; border-radius: 8px; padding: 7px 18px; font-size: 1em; font-weight: bold; cursor: grab; margin-bottom: 6px; user-select: none; transition: background 0.16s;}
+    .eng-ans .word { background: #e0e7ef; color: #1e293b; cursor: grab;}
+    .eng-build .word:active, .eng-ans .word:active { background: #1d4ed8; }
+    .eng-result { font-size:1em; color:#d97706; min-height:28px; font-weight: bold; margin-bottom:4px;}
+    .eng-btns button {padding:5px 14px; font-size:1em; border-radius:7px; border:none; background:#3b82f6; color:#fff; cursor:pointer; margin-right:5px; font-weight:bold;}
+    .eng-btns button:active {background:#194ca0;}
+    .answer-sentence {margin:6px 0 0 0; color:#374151; font-size:1.05em; }
+    @media (max-width: 500px) {
+      .mainbar { max-width: 99vw; }
+      .content-box { padding: 7vw 2vw;}
+      .en { min-width: 10vw; font-size: 0.95rem; }
+      .section-tab { font-size: 0.95rem; padding: 6px 13px;}
+      .sentence-row { flex-direction: column;}
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 </head>
 <body>
   <div class="header">
-    <a href="https://nmyway77.github.io/home2/" class="home-btn-ko" title="홈으로 이동">홈으로</a>
-    목일중3 [목동서로영어학원]
+    <a class="home-btn" href="https://nmyway77.github.io/home2/">홈으로</a>
+    <span class="header-title">목일중3 배열영작</span>
   </div>
-  <div class="lesson-select-bar">
-    <select id="lessonSelect" onchange="goToLesson(this.value)"></select>
-    <div id="lessonJumpBtns"></div>
+  <div class="mainbar">
+    <select id="lessonSelect" class="lesson-select" onchange="changeLesson()"></select>
+    <div class="main-title" id="mainTitle"></div>
+    <div class="section-tabs" id="sectionTabs"></div>
   </div>
-  <div class="lesson-title" id="lesson-title"></div>
-  <div id="lesson-container"></div>
-  <div id="lesson-nav">
-    <button onclick="prevLesson()">이전 과</button>
-    <span id="lesson-progress"></span>
-    <button onclick="nextLesson()">다음 과</button>
-  </div>
-  <script>
-    // 20개 과(lesson) 샘플 데이터, 각 lesson.problems 배열에 여러 개 문제 넣을 수 있음!
-    const lessons = [
-      { title: "Lesson 1-Discovering Yourself through Challenges", problems: [
-{
-  kor: "꿈을 찾아 이루어라!",
-  eng: ["Find", "a", "Dream", "and", "Live", "It", "!"],
-},
-
-{
-  kor: "여러분, 안녕하세요. 제 이름은 데이비드 파커이고, 저는 사진작가입니다.",
-  eng: ["Hello", ",", "everyone", ".", "My", "name", "is", "David", "Parker", ",", "and", "I", "’", "m", "a", "photographer", "."],
-},
-
-{
-  kor: "오늘은 제가 어떻게 꿈을 찾고 이루었는지 이야기하려고 합니다.",
-  eng: ["Today", ",", "I", "’", "m", "going", "to", "tell", "you", "how", "I", "found", "my", "dream", "and", "realized", "it", "."],
-},
-
-{
-  kor: "제 이야기가 여러분에게 영감을 주기를 바랍니다.",
-  eng: ["I", "hope", "my", "story", "can", "inspire", "you", "."],
-},
-
-{
-  kor: "어렸을 때 저는 별을 좋아했습니다. 사진을 찍는 것도 좋아했죠.",
-  eng: ["When", "I", "was", "young", ",", "I", "loved", "stars", ".", "I", "also", "liked", "taking", "pictures", "."],
-},
-
-{
-  kor: "하지만 이런 것들이 직업으로 이어질 수 있다고는 생각해 본 적이 없었습니다.",
-  eng: ["However", ",", "I", "never", "thought", "these", "things", "could", "lead", "to", "a", "job", "."],
-},
-
-{
-  kor: "사실 저는 전혀 꿈이 없었습니다.",
-  eng: ["In", "fact", ",", "I", "didn", "’", "t", "have", "a", "dream", "at", "all", "."],
-},
-
-{
-  kor: "대학에서 전공을 정해야 할 때 저는 공학을 선택했습니다.",
-  eng: ["When", "I", "had", "to", "decide", "on", "a", "major", "in", "college", ",", "I", "chose", "engineering", "."],
-},
-
-{
-  kor: "엔지니어가 되는 것은 괜찮아 보였거든요.",
-  eng: ["Being", "an", "engineer", "looked", "OK", "."],
-},
-
-{
-  kor: "대학 졸업 후 저는 엔지니어링 회사에 취직했습니다.",
-  eng: ["After", "college", ",", "I", "got", "a", "job", "at", "an", "engineering", "company", "."],
-},
-
-{
-  kor: "안정적인 직장이었지만, 제가 정말로 즐기고 있는지는 알 수 없었습니다.",
-  eng: ["It", "was", "a", "stable", "job", ",", "but", "I", "didn", "’", "t", "know", "whether", "I", "really", "enjoyed", "it", "."],
-},
-
-{
-  kor: "어느 겨울에 아이슬란드로 여행을 갔을 때 모든 것이 변했습니다.",
-  eng: ["Everything", "changed", "when", "I", "went", "on", "vacation", "to", "Iceland", "one", "winter", "."],
-},
-
-{
-  kor: "거기서 저는 오로라를 볼 기회를 얻었죠.",
-  eng: ["There", "I", "got", "a", "chance", "to", "see", "the", "Northern", "Lights", "."],
-},
-
-{
-  kor: "오로라는 정말 환상적이었고, 저는 하늘에서 춤추는 빛을 많이 사진에 담았습니다.",
-  eng: ["The", "lights", "were", "amazing", ",", "and", "I", "took", "many", "pictures", "of", "the", "dancing", "lights", "in", "the", "sky", "."],
-},
-
-{
-  kor: "여러 해 만에 처음으로 제 심장이 빠르게 뛰는 것을 느낄 수 있었습니다.",
-  eng: ["For", "the", "first", "time", "in", "many", "years", ",", "I", "could", "feel", "my", "heart", "beating", "fast", "."],
-},
-
-{
-  kor: "돌아와서 아이슬란드에서 찍은 사진으로 사진 공모전에 응모했습니다.",
-  eng: ["After", "I", "came", "back", ",", "I", "entered", "a", "photo", "contest", "with", "the", "pictures", "I", "took", "in", "Iceland", "."],
-},
-
-{
-  kor: "놀랍게도 1등을 수상했고, 이는 제 인생을 돌아볼 기회를 주었습니다.",
-  eng: ["Surprisingly", ",", "I", "won", "first", "prize", ",", "and", "this", "gave", "me", "a", "chance", "to", "think", "about", "my", "life", "."],
-},
-
-{
-  kor: "사진을 찍는 것이 저를 행복하게 한다는 것을 깨달았습니다.",
-  eng: ["I", "realized", "that", "taking", "pictures", "made", "me", "happy", "."],
-},
-
-{
-  kor: "갑자기 저는 훌륭한 사진작가가 되고 싶어져서 사진에 대해 더 배우기 시작했습니다.",
-  eng: ["Suddenly", ",", "I", "wanted", "to", "become", "a", "good", "photographer", ",", "so", "I", "started", "to", "learn", "more", "about", "photography", "."],
-},
-
-{
-  kor: "수년간의 시행착오 끝에 저는 실력이 늘었고,",
-  eng: ["After", "years", "of", "trial", "and", "error", ",", "I", "got", "better", ",", "and"],
-},
-
-{
-  kor: "사진작가로서 파트타임 일을 시작했습니다.",
-  eng: ["I", "began", "to", "do", "some", "part-time", "work", "as", "a", "photographer", "."],
-},
-
-{
-  kor: "그러다 어느 날 저는 과감한 결정을 내렸습니다.",
-  eng: ["Then", "one", "day", ",", "I", "made", "a", "bold", "decision", "."],
-},
-
-{
-  kor: "저는 직장을 그만두고 사진을 찍으며 살기로 결심했습니다.",
-  eng: ["I", "quit", "my", "job", "and", "decided", "to", "take", "pictures", "for", "a", "living", "."],
-},
-
-{
-  kor: "성공할 수 있을지 확신이 없었지만, 도전하기로 했습니다.",
-  eng: ["I", "wasn", "’", "t", "sure", "if", "I", "could", "succeed", ",", "but", "I", "decided", "to", "try", "."],
-},
-
-{
-  kor: "저는 정말 저를 행복하게 하는 일을 하고 싶었습니다.",
-  eng: ["I", "really", "wanted", "to", "do", "something", "that", "made", "me", "happy", "."],
-},
-
-{
-  kor: "지금 저는 전문 사진작가가 되었고, 행복합니다.",
-  eng: ["Now", ",", "I", "’", "m", "a", "professional", "photographer", ",", "and", "I", "’", "m", "happy", "."],
-},
-
-{
-  kor: "여러분도 꿈을 찾아 이루고 싶나요? 여러분을 위한 조언을 드립니다.",
-  eng: ["So", "do", "you", "want", "to", "find", "a", "dream", "and", "realize", "it", "?", "Here", "’", "s", "some", "advice", "to", "help", "you", "."],
-},
-
-{
-  kor: "첫째, 마음을 따르세요. 무엇을 하고 싶고 무엇이 여러분을 행복하게 하는지 생각해 보세요.",
-  eng: ["First", ",", "follow", "your", "heart", ".", "Think", "about", "what", "you", "like", "to", "do", "and", "what", "makes", "you", "happy", "."],
-},
-
-{
-  kor: "저의 경우에는 별을 사진으로 찍는 것이었습니다.",
-  eng: ["In", "my", "case", ",", "it", "was", "taking", "pictures", "of", "stars", "."],
-},
-
-{
-  kor: "둘째, 열심히 노력하세요. 꿈을 좇는 일은 쉽지 않습니다.",
-  eng: ["Second", ",", "work", "hard", ".", "Pursuing", "a", "dream", "is", "not", "easy", "."],
-},
-
-{
-  kor: "저는 노력으로 사진작가가 되었습니다.",
-  eng: ["I", "became", "a", "photographer", "through", "hard", "work", "."],
-},
-
-{
-  kor: "셋째, 과감해지세요. 여러분의 인생을 바꿀 결정을 내리려면 용기가 필요합니다.",
-  eng: ["Third", ",", "be", "bold", ".", "You", "need", "courage", "to", "make", "decisions", "that", "will", "change", "your", "life", "."],
-},
-
-{
-  kor: "저도 두려웠지만 기회를 잡았습니다.",
-  eng: ["I", "was", "afraid", "but", "I", "took", "a", "chance", "."],
-},
-
-{
-  kor: "여러분이 진정으로 꿈을 찾고, 그 꿈을 향해 노력하며, 꿈을 이루며 살기를 진심으로 바랍니다!",
-  eng: ["I", "truly", "hope", "you", "can", "find", "a", "dream", ",", "pursue", "it", ",", "and", "live", "it", "!"],
-},
-        ]
-      },
-      {
-        title: "Lesson 2 - Dolls around the world",
-        problems: [
-{  kor: "안녕하세요! 저는 스위피입니다.",
-  eng: ["GUTEN", "TAG", "!", "I", "’", "m", "Sweepy", "."],
-},
-{  kor: "저는 독일 출신이며, 제 직업은 굴뚝을 청소하는 것입니다.",
-  eng: ["I", "’", "m", "from", "Germany", "and", "my", "job", "is", "to", "clean", "chimneys", "."],
-},
-{  kor: "겨울 동안 굴뚝 청소부들은 사람들이 따뜻하고 안전하게 지낼 수 있도록 돕습니다.",
-  eng: ["During", "winter", ",", "chimney", "sweeps", "help", "people", "to", "keep", "warm", "and", "safe", "."],
-},
-{  kor: "그래서 사람들은 굴뚝 청소부가 행운을 가져다준다고 믿습니다.",
-  eng: ["So", "people", "think", "chimney", "sweeps", "bring", "them", "good", "luck", "."],
-},
-{  kor: "사람들은 심지어 결혼식에도 굴뚝 청소부가 오기를 원합니다!",
-  eng: ["People", "even", "want", "chimney", "sweeps", "to", "be", "at", "their", "weddings", "!"],
-},
-{  kor: "만약 저를 보게 된다면, 그날은 당신에게 행운이 따르는 날입니다.",
-  eng: ["If", "you", "see", "me", ",", "it", "is", "your", "lucky", "day", "."],
-},
-{  kor: "세계의 인형들",
-  eng: ["Dolls", "around", "the", "world"],
-},
-{  kor: "안녕하세요! 제 이름은 호세이고, 이분들은 제 마리아치 밴드 멤버들입니다.",
-  eng: ["iHOLA", "!", "My", "name", "is", "Jos", "and", "these", "are", "my", "mariachi", "band", "members", "."],
-},
-{  kor: "우리는 민속 음악을 연주하며 항상 소음브레로(큰 모자)를 씁니다.",
-  eng: ["We", "play", "folk", "music", "and", "always", "wear", "our", "sombreros", ",", "or", "big", "hats", "."],
-},
-{  kor: "멕시코에서는 뜨겁고 강한 햇빛 아래서 시원하게 지내기 위해 이런 모자를 씁니다.",
-  eng: ["In", "Mexico", ",", "people", "wear", "these", "hats", "to", "stay", "cool", "under", "the", "hot", "and", "strong", "sunlight", "."],
-},
-{  kor: "우리 마리아치 연주자들은 소음브레로가 화려해 보이길 원합니다.",
-  eng: ["We", "mariachi", "players", "want", "our", "sombreros", "to", "look", "fancy", "."],
-},
-{  kor: "그래서 우리는 다양한 재료로 모자를 자주 장식합니다.",
-  eng: ["So", "we", "often", "decorate", "them", "with", "a", "lot", "of", "different", "materials", "."],
-},
-{  kor: "우리 소음브레로 중에서 어느 것이 가장 마음에 드나요?",
-  eng: ["Which", "of", "our", "sombreros", "do", "you", "like", "best", "?"],
-},
-{  kor: "사보나! 제 이름은 아얀다이며, 저는 줄루족입니다.",
-  eng: ["Sawbona", "!", "My", "name", "is", "Ayanda", "and", "I", "’", "m", "a", "Zulu", "."],
-},
-{  kor: "우리는 남아프리카공화국에 사는 부족입니다.",
-  eng: ["We", "are", "a", "tribe", "in", "South", "Africa", "."],
-},
-{  kor: "제 구슬 장식을 어떻게 생각하시나요?",
-  eng: ["What", "do", "you", "think", "of", "my", "beads", "?"],
-},
-{  kor: "줄루족은 구슬로 의복을 만드는 것을 즐깁니다.",
-  eng: ["Zulu", "people", "enjoy", "making", "clothes", "with", "beads", "."],
-},
-{  kor: "구슬은 아름답고, 각각의 색깔은 특별한 의미를 가집니다.",
-  eng: ["They", "are", "beautiful", "and", "each", "color", "has", "a", "special", "meaning", "."],
-},
-{  kor: "우리에게 고유의 문자 체계가 없었을 때, 우리는 구슬을 사용해 서로 소통했습니다.",
-  eng: ["When", "we", "did", "not", "have", "our", "own", "writing", "system", ",", "we", "used", "beads", "to", "communicate", "with", "each", "other", "."],
-},
-{  kor: "색깔의 의미를 알고 싶다면 아래 상자를 확인해 보세요.",
-  eng: ["If", "you", "want", "to", "know", "the", "meaning", "of", "the", "colors", ",", "check", "out", "the", "following", "box", "."],
-},
-{  kor: "누군가에게 특별한 메시지를 보내고 싶다면 이 구슬로 당신의 마음을 표현할 수 있습니다. 어떤 메시지를 만들고 싶나요?",
-  eng: ["If", "you", "want", "to", "send", "someone", "a", "special", "message", ",", "you", "can", "express", "yourself", "with", "these", "beads", ".", "What", "message", "do", "you", "want", "to", "make", "?"],
-},
-        ]
-      },
-      {
-        title: "Lesson 3 - Paint a Better Tomorrow",
-        problems: [
-{
-  kor: "영어는 다른 문화나 언어에서 단어를 종종 빌려 왔다.",
-  eng: ["English", "has", "often", "borrowed", "words", "from", "other", "cultures", "or", "languages", "."],
-},
-
-{
-  kor: "여기 재미있는 이야기를 가진 몇 개의 예가 있다.",
-  eng: ["Here", "are", "some", "examples", "with", "interesting", "stories", "."],
-},
-
-{
-  kor: "shampoo라는 단어는 힌디어 단어인 chāmpo에서 왔는데, 그것은 ‘누르다’라는 의미이다.",
-  eng: ["The", "word", "shampoo", "comes", "from", "the", "Hindi", "word", "ch", "mpo", ",", "which", "means", "“", "to", "press", ".", "”"],
-},
-
-{
-  kor: "인도에서 그 단어는 머리 마사지를 가리키는 데 쓰였다.",
-  eng: ["In", "India", ",", "the", "word", "was", "used", "for", "a", "head", "massage", "."],
-},
-
-{
-  kor: "인도에 있던 영국 무역상들이 머리 마사지를 곁들인 목욕을 경험하고, 18세기에 그것을 영국에 소개했다.",
-  eng: ["British", "traders", "in", "India", "experienced", "a", "bath", "with", "a", "head", "massage", "and", "introduced", "it", "to", "Britain", "in", "the", "18th", "century", "."],
-},
-
-{
-  kor: "shampoo라는 단어의 의미는 그 단어가 1762년쯤 영어에 처음 들어온 이후 몇 번 바뀌었다.",
-  eng: ["The", "meaning", "of", "the", "word", "shampoo", "changed", "a", "few", "times", "after", "it", "first", "entered", "English", "around", "1762", "."],
-},
-
-{
-  kor: "19세기에 shampoo는 ‘머리 감기’라는 현재의 의미를 갖게 되었다.",
-  eng: ["In", "the", "19th", "century", ",", "shampoo", "got", "its", "present", "meaning", "of", "“", "washing", "the", "hair", ".", "”"],
-},
-
-{
-  kor: "그 후 얼마 지나지 않아, 그 단어는 머리에 사용하는 특별한 비누를 가리키는 데에도 쓰이기 시작했다.",
-  eng: ["Shortly", "after", "that", ",", "the", "word", "began", "to", "be", "also", "used", "for", "a", "special", "soap", "for", "the", "hair", "."],
-},
-
-{
-  kor: "robot이라는 단어는 희곡 ‘R.U.R.’에서 왔는데, 그 희곡은 1920년에 체코의 작가 Karel Čapek이 썼다.",
-  eng: ["The", "word", "robot", "comes", "from", "the", "play", "R", ".", "U", ".", "R", ".", ",", "which", "was", "written", "in", "1920", "by", "a", "Czech", "writer", "Karel", "apek", "."],
-},
-
-{
-  kor: "그 희곡에서 로봇은 인간처럼 생긴 기계이다.",
-  eng: ["In", "the", "play", ",", "robots", "are", "machines", "that", "look", "like", "humans", "."],
-},
-
-{
-  kor: "그것은 인간을 위해 일하도록 설계되고, 공장에서 생산된다.",
-  eng: ["They", "are", "designed", "to", "work", "for", "humans", "and", "are", "produced", "in", "a", "factory", "."],
-},
-
-{
-  kor: "robot이라는 단어를 사용하려는 생각이 Karel Čapek 자신에게서 나온 게 아니었다는 것은 흥미롭다.",
-  eng: ["It", "is", "interesting", "that", "the", "idea", "of", "using", "the", "word", "robot", "didn", "’", "t", "come", "from", "Karel", "apek", "himself", "."],
-},
-
-{
-  kor: "그는 원래 자신의 희곡에 등장하는 그 기계들을 ‘일’을 의미하는 라틴어 단어에서 온 labori라고 불렀다.",
-  eng: ["He", "originally", "called", "the", "machines", "in", "his", "play", "labori", "from", "the", "Latin", "word", "for", "”", "work", ".", "“"],
-},
-
-{
-  kor: "하지만 그의 형이 roboti를 제안했는데, 그것은 체코어로 ‘노예 근로자들’을 의미한다.",
-  eng: ["However", ",", "his", "brother", "suggested", "roboti", ",", "which", "means", "”", "slave", "workers", "“", "in", "Czech", "."],
-},
-
-{
-  kor: "Karel Čapek은 그 아이디어가 마음에 들어 roboti라는 단어를 사용하기로 결정했다.",
-  eng: ["Karel", "apek", "liked", "the", "idea", "and", "decided", "to", "use", "the", "word", "roboti", "."],
-},
-
-{
-  kor: "1938년에 그 희곡은 영국 TV에서 공상 과학물로 만들어졌다.",
-  eng: ["In", "1938", ",", "the", "play", "was", "made", "into", "a", "science", "fiction", "show", "on", "television", "in", "Britain", "."],
-},
-
-{
-  kor: "hurricane이라는 단어는 스페인어 단어인 huracán에서 왔는데, 그것은 마야 신의 이름에서 유래한다.",
-  eng: ["The", "word", "hurricane", "comes", "from", "the", "Spanish", "word", "hurac", "n", ",", "which", "originates", "from", "the", "name", "of", "a", "Mayan", "god", "."],
-},
-
-{
-  kor: "마야의 창조 신화에서 Huracán은 바람, 폭풍우, 그리고 불을 다스리는 날씨의 신이며, 그는 인간을 창조한 세 명의 신들 중 한 명이다.",
-  eng: ["In", "the", "Mayan", "creation", "myth", ",", "Hurac", "n", "is", "the", "weather", "god", "of", "wind", ",", "storm", ",", "and", "fire", ",", "and", "he", "is", "one", "of", "the", "three", "gods", "who", "created", "humans", "."],
-},
-
-{
-  kor: "하지만 최초의 인간들이 그 신들을 화나게 했고, 그래서 Huracán은 거대한 홍수를 일으켰다.",
-  eng: ["However", ",", "the", "first", "humans", "angered", "the", "gods", ",", "so", "Hurac", "n", "caused", "a", "great", "flood", "."],
-},
-
-{
-  kor: "스페인이 마야 문명과 처음 했던 접촉은 1517년이었다.",
-  eng: ["The", "first", "Spanish", "contact", "with", "the", "Mayan", "civilization", "was", "in", "1517", "."],
-},
-
-{
-  kor: "카리브제도를 통과해 지나가던 스페인 탐험가들이 허리케인을 겪었고, 그 지역 사람들로부터 그것을 가리키는 단어를 익히게 되었다.",
-  eng: ["Spanish", "explorers", "who", "were", "passing", "through", "the", "Caribbean", "experienced", "a", "hurricane", "and", "picked", "up", "the", "word", "for", "it", "from", "the", "people", "in", "the", "area", "."],
-},
-
-{
-  kor: "영어에서는 hurricane이 초기에 사용된 예 중 하나가 1608년에 셰익스피어가 쓴 희곡에서였다.",
-  eng: ["In", "English", ",", "one", "of", "the", "early", "uses", "of", "hurricane", "was", "in", "a", "play", "by", "Shakespeare", "in", "1608", "."],
-},
-
-{
-  kor: "hamburger라는 단어는 원래 독일에서 두 번째로 큰 도시인 함부르크에서 왔다.",
-  eng: ["The", "word", "hamburger", "originally", "comes", "from", "Hamburg", ",", "Germany", "’", "s", "second", "largest", "city", "."],
-},
-
-{
-  kor: "hamburger는 독일어로 ‘함부르크 출신의 사람 또는 사물’을 의미한다.",
-  eng: ["Hamburger", "means", "“", "people", "or", "things", "from", "Hamburg", "”", "in", "German", "."],
-},
-
-{
-  kor: "최초의 햄버거의 기원은 분명하지 않다.",
-  eng: ["The", "origin", "of", "the", "first", "hamburger", "is", "not", "clear", "."],
-},
-
-{
-  kor: "하지만 햄버거는 1885년에서 1904년 사이의 언젠가 미국의 텍사스에 있는 작은 마을에서 발명되었다고 여겨진다.",
-  eng: ["However", ",", "it", "is", "believed", "that", "the", "hamburger", "was", "invented", "in", "a", "small", "town", "in", "Texas", ",", "USA", ",", "sometime", "between", "1885", "and", "1904", "."],
-},
-
-{
-  kor: "한 요리사가 빵 두 조각 사이에 함부르크 스타일의 스테이크를 넣었고, 사람들은 그런 음식을 햄버거라고 부르기 시작했다.",
-  eng: ["A", "cook", "placed", "a", "Hamburg", "style", "steak", "between", "two", "slices", "of", "bread", ",", "and", "people", "started", "to", "call", "such", "food", "a", "hamburger", "."],
-},
-        ]
-      },
-      {
-        title: "Lesson 4 - HOLES",
-        problems: [
-{
-  kor: "더 열심히 파, 스탠리! 더 세게 팔수록 더 빨리 끝낼 수 있어!” 하고 Mr. Sir가 소리쳤다.",
-  eng: ["Dig", "harder", ",", "Stanley", "!", "The", "harder", "you", "dig", ",", "the", "faster", "you", "’", "ll", "finish", "!", "”", "yelled", "Mr", ".", "Sir", "."],
-},
-
-{
-  kor: "스탠리 옐내츠는 모든 근육이 쑤셔서 더 세게 팠다간 몸이 부서질 것 같았다.",
-  eng: ["Stanley", "Yelnats", "couldn", "’", "t", "dig", "any", "harder", "since", "every", "single", "muscle", "hurt", "."],
-},
-
-{
-  kor: "그는 목이 말랐고 배도 고팠다.",
-  eng: ["He", "was", "thirsty", "and", "hungry", "."],
-},
-
-{
-  kor: "집에 가고 싶었다.",
-  eng: ["He", "wanted", "to", "go", "home", "."],
-},
-
-{
-  kor: "안타깝게도 앞으로 18개월 동안 스탠리가 집이라고 부를 곳은 바로 이곳, 캠프 그린 레이크였다.",
-  eng: ["Unfortunately", ",", "Stanley", "’", "s", "home", "for", "the", "next", "18", "months", "would", "be", "right", "here", ",", "at", "Camp", "Green", "Lake", "."],
-},
-
-{
-  kor: "캠프 그린 레이크라는 이름은 끔찍했다.",
-  eng: ["Camp", "Green", "Lake", "was", "a", "terrible", "name", "."],
-},
-
-{
-  kor: "초록색은커녕 호수도 없었다.",
-  eng: ["It", "wasn", "’", "t", "green", "and", "there", "was", "no", "lake", "."],
-},
-
-{
-  kor: "캠프 그린 레이크는 덥고 모래투성이였다.",
-  eng: ["Camp", "Green", "Lake", "was", "hot", "and", "full", "of", "sand", "."],
-},
-
-{
-  kor: "사실 캠프라고 부를 수도 없었다.",
-  eng: ["In", "fact", ",", "it", "wasn", "’", "t", "even", "a", "camp", "."],
-},
-
-{
-  kor: "나쁜 소년들을 위한 곳이었다.",
-  eng: ["It", "was", "a", "place", "for", "bad", "boys", "."],
-},
-
-{
-  kor: "그렇다면 착한 소년인 스탠리가 여기 온 이유는 무엇이었을까?",
-  eng: ["Then", "what", "was", "a", "good", "boy", "like", "Stanley", "doing", "here", "?"],
-},
-
-{
-  kor: "그는 운동화 한 켤레를 훔쳤다는 이유로 이곳에 보내졌다.",
-  eng: ["He", "was", "sent", "to", "the", "camp", "for", "stealing", "a", "pair", "of", "sneakers", "."],
-},
-
-{
-  kor: "스탠리가 실제로 운동화를 훔친 것은 아니었다.",
-  eng: ["Stanley", "didn", "’", "t", "really", "steal", "a", "pair", "of", "sneakers", "."],
-},
-
-{
-  kor: "그저 잘못된 시간에 잘못된 장소에 있었을 뿐이었다.",
-  eng: ["He", "was", "just", "in", "the", "wrong", "place", "at", "the", "wrong", "time", "."],
-},
-
-{
-  kor: "어느 날 그는 학교에서 집으로 걸어가고 있었다.",
-  eng: ["One", "day", ",", "he", "was", "walking", "home", "from", "school", "."],
-},
-
-{
-  kor: "갑자기 허름한 운동화 한 켤레가 하늘에서 떨어졌다.",
-  eng: ["Suddenly", ",", "a", "pair", "of", "old", "sneakers", "fell", "from", "the", "sky", "."],
-},
-
-{
-  kor: "운동화는 그의 머리를 강타했다.",
-  eng: ["The", "sneakers", "hit", "him", "on", "the", "head", "."],
-},
-
-{
-  kor: "그는 무슨 일인지 아버지에게 알리려고 운동화를 들고 뛰기 시작했다.",
-  eng: ["He", "started", "running", "with", "the", "sneakers", "to", "tell", "his", "father", "what", "happened", "."],
-},
-
-{
-  kor: "몇 분 후 경찰이 스탠리를 멈추고 왜 뛰고 있는지 물었다.",
-  eng: ["A", "few", "minutes", "later", ",", "the", "police", "stopped", "Stanley", "and", "asked", "him", "why", "he", "was", "running", "."],
-},
-
-{
-  kor: "불행히도 그 운동화는 유명 야구 선수 클라이드 리빙스턴의 것이었다.",
-  eng: ["Unfortunately", "for", "Stanley", ",", "the", "sneakers", "belonged", "to", "a", "famous", "baseball", "player", ",", "Clyde", "Livingstone", "."],
-},
-
-{
-  kor: "그 때문에 스탠리는 캠프 그린 레이크에 오게 된 것이다.",
-  eng: ["That", "was", "why", "Stanley", "ended", "up", "at", "Camp", "Green", "Lake", "."],
-},
-
-{
-  kor: "스탠리는 캠프에서 D조에 배정되었다.",
-  eng: ["Stanley", "was", "assigned", "to", "Group", "D", "in", "the", "camp", "."],
-},
-
-{
-  kor: "스탠리의 조에는 여섯 명의 소년이 더 있었다.",
-  eng: ["There", "were", "six", "other", "boys", "in", "Stanley", "’", "s", "group", "."],
-},
-
-{
-  kor: "그들은 모두 X-Ray, Zigzag, Zero 같은 멋진 별명을 가지고 있었다.",
-  eng: ["They", "all", "had", "cool", "names", "like", "X-Ray", ",", "Zigzag", "and", "Zero", "."],
-},
-
-{
-  kor: "각 소년은 매일 구덩이 하나를 파야 했다.",
-  eng: ["Each", "boy", "had", "to", "dig", "one", "hole", "every", "day", "."],
-},
-
-{
-  kor: "깊이와 너비가 각각 약 150cm여야 했다.",
-  eng: ["It", "had", "to", "be", "about", "150cm", "deep", "and", "150cm", "wide", "."],
-},
-
-{
-  kor: "Mr. Sir는 “너희가 캐는 것은 인성을 기르기 위해서야.”라고 말했다.",
-  eng: ["Mr", ".", "Sir", "said", ",", "“", "You", "are", "digging", "to", "build", "character", ".", "”"],
-},
-
-{
-  kor: "스탠리가 더 많이 팔수록 그는 더 강해졌다.",
-  eng: ["The", "more", "Stanley", "dug", ",", "the", "stronger", "he", "became", "."],
-},
-
-{
-  kor: "매일 구덩이를 파는 데 걸리는 시간이 줄어들었다.",
-  eng: ["It", "took", "less", "time", "to", "finish", "his", "hole", "each", "day", "."],
-},
-
-{
-  kor: "두 번째 주에 스탠리가 구덩이를 거의 마무리할 때 흙 속에서 반짝이는 것을 발견했다.",
-  eng: ["In", "his", "second", "week", ",", "as", "Stanley", "was", "finishing", "his", "hole", ",", "he", "saw", "something", "shiny", "in", "the", "dirt", "."],
-},
-
-{
-  kor: "스탠리의 심장은 빠르게 뛰기 시작했다.",
-  eng: ["Stanley", "’", "s", "heart", "beat", "faster", "."],
-},
-
-{
-  kor: "흥미로운 것을 찾으면 하루 휴가를 준다는 말을 들은 적이 있었다.",
-  eng: ["He", "heard", "that", "anyone", "who", "found", "something", "interesting", "would", "be", "given", "the", "day", "off", "."],
-},
-
-{
-  kor: "스탠리는 조심스럽게 반짝이는 물체를 집어들어 흙을 털어냈다.",
-  eng: ["He", "carefully", "picked", "up", "the", "shiny", "object", "and", "brushed", "off", "the", "dirt", "."],
-},
-
-{
-  kor: "작고 금빛이 도는 관 모양의 물체였다.",
-  eng: ["It", "was", "a", "small", "gold", "tube", "."],
-},
-
-{
-  kor: "너무 가벼워서 진짜 금관일 리는 없었다.",
-  eng: ["But", "it", "couldn", "’", "t", "be", "real", "gold", "since", "it", "was", "too", "light", "."],
-},
-
-{
-  kor: "관 밑부분에는 KB라는 두 글자가 새겨져 있었다.",
-  eng: ["There", "were", "two", "letters", ",", "KB", ",", "at", "the", "bottom", "of", "the", "tube", "."],
-},
-
-{
-  kor: "KB는 무엇을 뜻하는 걸까?",
-  eng: ["What", "did", "KB", "stand", "for", "?"],
-},
-
-{
-  kor: "스탠리의 심장은 더욱 빠르게 뛰었다.",
-  eng: ["Stanley", "’", "s", "heart", "beat", "even", "faster", "."],
-},
-        ]
-      },
-      {
-        title: "Lesson 5 - From Trash to Music",
-        problems: [
-{
-  kor: "기쁨의 눈물이 내 뺨을 타고 흐른다.",
-  eng: ["Tears", "of", "joy", "are", "rolling", "down", "my", "cheeks", "."],
-},
-
-{
-  kor: "나는 너무 행복하고 감격스럽다.",
-  eng: ["I", "’", "m", "so", "happy", "and", "thrilled", "."],
-},
-
-{
-  kor: "내가 새라면 날아오를 것만 같다.",
-  eng: ["If", "I", "were", "a", "bird", ",", "I", "would", "fly", "."],
-},
-
-{
-  kor: "주위를 둘러본다.",
-  eng: ["I", "look", "around", "."],
-},
-
-{
-  kor: "내 오케스트라의 다른 단원들이 서로를 끌어안고 있다.",
-  eng: ["The", "other", "members", "in", "my", "orchestra", "are", "hugging", "one", "another", "."],
-},
-
-{
-  kor: "우리의 연주회가 막 끝났고 모두가 일어나 커다란 박수를 보내고 있다.",
-  eng: ["Our", "concert", "has", "just", "finished", "and", "everyone", "is", "standing", "and", "giving", "us", "a", "big", "hand", "."],
-},
-
-{
-  kor: "우리 중 누구도 이 날이 올 거라고는 생각하지 못했다.",
-  eng: ["None", "of", "us", "ever", "expected", "that", "this", "day", "would", "come", "."],
-},
-
-{
-  kor: "긴 여정이었다.",
-  eng: ["It", "has", "been", "a", "long", "journey", "."],
-},
-
-{
-  kor: "내 이름은 안드레아이고 나는 재활용 오케스트라의 바이올린 연주자다.",
-  eng: ["My", "name", "is", "Andrea", "and", "I", "’", "m", "a", "violinist", "in", "the", "Recycled", "Orchestra", "."],
-},
-
-{
-  kor: "왜 ‘재활용 오케스트라’라고 불릴까?",
-  eng: ["Why", "is", "it", "called", "the", "Recycled", "Orchestra", "?"],
-},
-
-{
-  kor: "그 이유는 우리의 악기가 모두 쓰레기 매립지에서 나온 물건으로 만들어졌기 때문이다.",
-  eng: ["It", "’", "s", "because", "our", "musical", "instruments", "are", "made", "of", "objects", "from", "a", "landfill", "."],
-},
-
-{
-  kor: "그래서 ‘매립지 하모닉 오케스트라’라고도 불린다.",
-  eng: ["That", "’", "s", "why", "it", "’", "s", "also", "known", "as", "the", "Landfill", "Harmonic", "Orchestra", "."],
-},
-
-{
-  kor: "우리 오케스트라의 대부분은 파라과이의 작은 마을 카테우라 출신이다.",
-  eng: ["Most", "of", "us", "in", "the", "orchestra", "are", "from", "Cateura", ",", "a", "small", "town", "in", "Paraguay", "."],
-},
-
-{
-  kor: "우리 마을에는 거대한 쓰레기 매립지가 있다.",
-  eng: ["There", "is", "a", "huge", "landfill", "in", "our", "town", "."],
-},
-
-{
-  kor: "어떤 사람들은 카테우라 자체가 거대한 매립지라고 말하기도 한다.",
-  eng: ["Some", "people", "even", "say", "that", "Cateura", "itself", "is", "a", "giant", "landfill", "."],
-},
-
-{
-  kor: "우리 중 많은 사람이 가난하다.",
-  eng: ["Many", "of", "us", "are", "poor", "."],
-},
-
-{
-  kor: "우리 마을에는 희망과 꿈이 별로 없었다.",
-  eng: ["There", "weren", "’", "t", "many", "hopes", "and", "dreams", "in", "our", "town", "."],
-},
-
-{
-  kor: "하지만 파비오 차베스를 만난 후 모든 것이 변하기 시작했다.",
-  eng: ["Everything", "began", "to", "change", ",", "however", ",", "when", "we", "met", "Favio", "Ch", "vez", "."],
-},
-
-{
-  kor: "파비오는 환경 교육자이자 음악가였다.",
-  eng: ["Favio", "was", "an", "environmental", "educator", "and", "a", "musician", "."],
-},
-
-{
-  kor: "그는 우리에게 음악을 가르치고 싶었지만 큰 문제가 있었다.",
-  eng: ["He", "wanted", "to", "teach", "us", "music", ",", "but", "there", "was", "a", "big", "problem", "."],
-},
-
-{
-  kor: "마을 전체에 악기가 몇 개밖에 없었다.",
-  eng: ["There", "were", "only", "a", "few", "musical", "instruments", "in", "the", "whole", "town", "."],
-},
-
-{
-  kor: "새 악기를 살 형편이 되지 않았다.",
-  eng: ["We", "couldn", "’", "t", "afford", "to", "buy", "new", "ones", "."],
-},
-
-{
-  kor: "그러나 파비오는 포기하지 않았다.",
-  eng: ["But", "Favio", "didn", "’", "t", "give", "up", "."],
-},
-
-{
-  kor: "그는 매립지의 물건들로 악기를 만들 수 있다고 말했다.",
-  eng: ["He", "said", "that", "we", "could", "make", "musical", "instruments", "with", "objects", "from", "the", "landfill", "."],
-},
-
-{
-  kor: "니콜라스라는 재능 있는 사람이 이 아이디어를 실제로 구현해냈다.",
-  eng: ["A", "talented", "man", "named", "Nicholas", "was", "able", "to", "put", "this", "idea", "into", "practice", "."],
-},
-
-{
-  kor: "그는 기름 통으로 바이올린을 만들었다.",
-  eng: ["He", "made", "violins", "from", "oil", "drums", "."],
-},
-
-{
-  kor: "그는 수도관을 플루트로 바꾸었다.",
-  eng: ["He", "turned", "water", "pipes", "into", "flutes", "."],
-},
-
-{
-  kor: "우리는 또 다른 문제에 부딪혔다.",
-  eng: ["We", "had", "another", "problem", "."],
-},
-
-{
-  kor: "아무도 악기를 다룰 줄 몰랐다.",
-  eng: ["No", "one", "knew", "how", "to", "play", "musical", "instruments", "."],
-},
-
-{
-  kor: "음악 악보 읽는 법조차 몰랐다.",
-  eng: ["We", "didn", "’", "t", "even", "know", "how", "to", "read", "music", "."],
-},
-
-{
-  kor: "파비오는 큰 인내심을 가지고 우리를 가르쳤다.",
-  eng: ["Favio", "taught", "us", "with", "great", "patience", "."],
-},
-
-{
-  kor: "한 걸음씩 악기로 소리를 내기 시작했다.",
-  eng: ["Step", "by", "step", ",", "we", "began", "to", "make", "some", "sounds", "on", "our", "instruments", "."],
-},
-
-{
-  kor: "내가 우리가 처음 연주한 곡이 아직도 기억난다.",
-  eng: ["I", "still", "remember", "the", "first", "piece", "of", "music", "that", "we", "played", "."],
-},
-
-{
-  kor: "아주 짧았고 음정도 대부분 맞지 않았다.",
-  eng: ["It", "was", "very", "short", "and", "mostly", "out", "of", "tune", "."],
-},
-
-{
-  kor: "그러나 우리에게는 가장 아름다운 음악이었다.",
-  eng: ["But", "it", "was", "the", "most", "beautiful", "music", "to", "us", "."],
-},
-
-{
-  kor: "우리의 마음속에 새로운 희망이 차올랐다.",
-  eng: ["We", "felt", "a", "new", "hope", "in", "our", "hearts", "."],
-},
-
-{
-  kor: "그때부터 우리는 매일 모여 연습했다.",
-  eng: ["From", "then", "on", ",", "we", "gathered", "to", "practice", "every", "day", "."],
-},
-
-{
-  kor: "어느 날 파비오는 우리에게 기쁜 소식을 전했다.",
-  eng: ["One", "day", ",", "Favio", "told", "us", "some", "great", "news", "."],
-},
-
-{
-  kor: "우리는 콘서트를 열 예정이었다. 진짜 콘서트였다!",
-  eng: ["We", "were", "going", "to", "have", "a", "concert", ",", "a", "real", "concert", "!"],
-},
-
-{
-  kor: "그리고 지금 우리는 수백 명 앞에 서 있다.",
-  eng: ["And", "here", "we", "are", "now", "in", "front", "of", "hundreds", "of", "people", "."],
-},
-
-{
-  kor: "그들은 우리 음악을 사랑한다.",
-  eng: ["They", "love", "our", "music", "."],
-},
-
-{
-  kor: "세상은 우리에게 쓰레기를 보내지만, 우리는 음악을 돌려준다!",
-  eng: ["The", "world", "sends", "us", "trash", ",", "but", "we", "send", "back", "music", "!"],
-},
-    
-        ] },
-      { title: "Lesson 6", problems: [
-          { kor: "비가 오고 있다.", eng: ["It", "is", "raining", "."] },
-        ] },
-      { title: "Lesson 7", problems: [
-          { kor: "나는 저녁을 요리한다.", eng: ["I", "cook", "dinner", "."] },
-        ] },
-      { title: "Lesson 8", problems: [
-          { kor: "그들은 영화를 본다.", eng: ["They", "watch", "a", "movie", "."] },
-        ] },
-      { title: "Lesson 9", problems: [
-          { kor: "우리는 친구다.", eng: ["We", "are", "friends", "."] },
-        ] },
-      { title: "Lesson 10", problems: [
-          { kor: "그는 농구를 한다.", eng: ["He", "plays", "basketball", "."] },
-        ] },
-      { title: "Lesson 11", problems: [
-          { kor: "나는 책을 읽는다.", eng: ["I", "read", "a", "book", "."] },
-        ] },
-      { title: "Lesson 12", problems: [
-          { kor: "그녀는 노래를 잘 부른다.", eng: ["She", "sings", "well", "."] },
-        ] },
-      { title: "Lesson 13", problems: [
-          { kor: "강아지는 귀엽다.", eng: ["The", "puppy", "is", "cute", "."] },
-        ] },
-      { title: "Lesson 14", problems: [
-          { kor: "나는 자전거를 탄다.", eng: ["I", "ride", "a", "bicycle", "."] },
-        ] },
-      { title: "Lesson 15", problems: [
-          { kor: "그들은 축구를 한다.", eng: ["They", "play", "soccer", "."] },
-        ] },
-      { title: "Lesson 16", problems: [
-          { kor: "나는 수영을 잘한다.", eng: ["I", "can", "swim", "well", "."] },
-        ] },
-      { title: "Lesson 17", problems: [
-          { kor: "엄마가 밥을 만든다.", eng: ["My", "mom", "cooks", "rice", "."] },
-        ] },
-      { title: "Lesson 18", problems: [
-          { kor: "나는 매일 운동장에 간다.", eng: ["I", "go", "to", "the", "playground", "every", "day", "."] },
-        ] },
-      { title: "Lesson 19", problems: [
-          { kor: "그녀는 매일 아침 일찍 일어난다.", eng: ["She", "gets", "up", "early", "every", "morning", "."] },
-        ] },
-      { title: "Lesson 20", problems: [
-          { kor: "나는 한국 음식을 좋아한다.", eng: ["I", "like", "Korean", "food", "."] },
-        ] }
-    ];
-
-    let lessonIdx = 0;
-    let problemStates = [];
-    function shuffle(arr) { return arr.slice().sort(() => Math.random() - 0.5); }
-    function speak(text) {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const utter = new window.SpeechSynthesisUtterance(text);
-        utter.lang = 'en-US';
-        utter.rate = 1;
-        window.speechSynthesis.speak(utter);
-      }
+  <div class="content-box" id="sectionContent"></div>
+<script>
+  // 예시 문제구조
+  const lessonSections = {};
+  for (let i=1; i<=25; i++) lessonSections[i] = [`${i}-1`, `${i}-2`, `${i}-3`, `${i}-4`, `${i}-5`];
+  const sectionSentences = {
+    '1-1': [
+{en: "You need:", ko: "필요한 재료:"}, {en: "• 20 sticks of spaghetti • 1 marshmallow • 1 meter of tape • 1 meter of string", ko: "• 스파게티 20개, 마시멜로 1개, 테이프 1미터, 끈 1미터"}, {en: "Rules:", ko: "규칙:"}, {en: "• Each team has four people.", ko: "• 각 팀은 4명으로 구성됩니다."}, {en: "• You have to build the tallest tower in your class.", ko: "• 여러분의 반에서 가장 높은 탑을 만들어야 합니다."}, {en: "• The marshmallow must be on top.", ko: "• 마시멜로는 꼭 탑의 맨 위에 있어야 합니다."}, {en: "• The tower must stand by itself.", ko: "• 탑은 혼자서 서 있어야 합니다."}, {en: "• The time limit is 15 minutes.", ko: "• 시간 제한은 15분입니다."}, {en: "This activity is good for:", ko: "이 활동은 다음에 좋습니다:"}, {en: "• Building Relationships • Solving Problems • Thinking Creatively", ko: "• 관계 형성 • 문제 해결 • 창의적 사고"}, {en: "How did you do the marshmallow challenge?", ko: "마시멜로 챌린지를 어떻게 진행했나요?"}, {en: "Every team does the marshmallow challenge differently.", ko: "모든 팀은 마시멜로 챌린지를 다르게 진행합니다."}, {en: "Let’s look at some examples.", ko: "몇 가지 예시를 살펴보겠습니다."}, {en: "Which one do you like best?", ko: "어떤 예시가 가장 마음에 드세요?"}, {en: "TEAM A", ko: "팀 A"}, {en: "Think before you act.", ko: "행동하기 전에 생각하세요."}, {en: "We had many good ideas. We talked about each idea in detail.", ko: "우리는 많은 좋은 아이디어를 가졌습니다. 각 아이디어에 대해 자세히 이야기했습니다."}, {en: "It was not easy for us to choose the best idea.", ko: "우리가 가장 좋은 아이디어를 고르는 것은 쉽지 않았습니다."}, {en: "Suddenly the teacher said, “Five minutes left.”", ko: "갑자기 선생님이 \"5분 남았습니다.\"라고 말씀하셨습니다."}, {en: "In a hurry, we taped the sticks of spaghetti together.", ko: "급하게 스파게티 면을 테이프에 붙여 연결했습니다."}, {en: "Then, we wrapped the string around them.", ko: "그 다음, 끈을 그들 주위에 감았습니다."}, {en: "The string got stuck to the tape and it was a big mess.", ko: "끈이 테이프에 붙어서 큰 엉망이 되었습니다."}, {en: "With one second left, I put the marshmallow on top!", ko: "1초가 남았을 때, 마시멜로를 맨 위에 올렸습니다!"}, {en: "TEAM B", ko: "팀 B"}, {en: "Just do it.", ko: "그냥 해보세요."}, {en: "We didn’t spend much time on planning.", ko: "우리는 계획을 세우는 데 많은 시간을 들이지 않았습니다."}, {en: "All the members started building the tower right away.", ko: "모든 팀원들은 바로 탑을 만들기 시작했습니다."}, {en: "Our first tower looked like a tent.", ko: "우리의 첫 번째 탑은 텐트처럼 보였습니다."}, {en: "It wasn’t very tall.", ko: "그 탑은 그리 높지 않았습니다."}, {en: "We tried again.", ko: "다시 시도했습니다."}, {en: "The next tower was tall but it couldn’t stand by itself.", ko: "다음 탑은 높았지만 혼자서 서 있을 수 없었습니다."}, {en: "After many tries, it was possible for us to build a beautiful and tall tower.", ko: "많은 시도 끝에 우리는 아름답고 높은 탑을 만들 수 있었습니다."}, {en: "It looked like the Leaning Tower of Pisa.", ko: "그것은 피사의 사탑처럼 보였습니다."}, {en: "We finally made what we wanted!", ko: "우리는 마침내 우리가 원하던 것을 만들었습니다!"}, {en: "TEAM C", ko: "팀 C"}, {en: "We’re one team.", ko: "우리는 하나의 팀입니다."}, {en: "We didn’t try to choose the best idea.", ko: "우리는 가장 좋은 아이디어를 고르려고 하지 않았습니다."}, {en: "Instead, we took a good idea and improved on it.", ko: "대신, 좋은 아이디어를 취하고 그것을 개선했습니다."}, {en: "One student said we needed a strong base.", ko: "한 학생은 강한 기초가 필요하다고 말했습니다."}, {en: "Another student suggested a triangle shape for the base.", ko: "다른 학생은 기초에 삼각형 모양을 제안했습니다."}, {en: "We all agreed and divided up the roles such as time checker and tape cutter.", ko: "우리는 모두 동의했고, 시간 확인자와 테이프 자르기 등의 역할을 나누었습니다."}, {en: "We worked together as a team.", ko: "우리는 하나의 팀으로 함께 일했습니다."}, {en: "In the end, we built our tall tower!", ko: "결국 우리는 우리의 높은 탑을 만들었습니다!"},
+    ],
+    '1-2': [],
+    '1-3': [],
+    '1-4': [],
+    '1-5': [],
+'2-2': [],
+    '2-3': [],
+    '2-4': [],
+    '2-5': [],
+  };
+  for (let i=1; i<=25; i++) for (let j=1; j<=5; j++) if (!sectionSentences[`${i}-${j}`]) sectionSentences[`${i}-${j}`] = [];
+
+  let currentUnit = 1;
+  let currentSectionIdx = 0;
+  let buildStates = {};
+
+  function setLessonOptions() {
+    const sel = document.getElementById('lessonSelect');
+    sel.innerHTML = '';
+    for (let i=1; i<=25; i++) {
+      sel.innerHTML += `<option value="${i}">Lesson ${i}</option>`;
     }
-    function renderLessonSelectBar() {
-      const sel = document.getElementById('lessonSelect');
-      sel.innerHTML = lessons.map((l, i) =>
-        `<option value="${i}" ${i===lessonIdx?'selected':''}>${l.title}</option>`).join('');
-      const jumpDiv = document.getElementById('lessonJumpBtns');
-      jumpDiv.innerHTML = lessons.map((l,i)=>
-        `<button class="jumpbtn${i===lessonIdx?' active':''}" onclick="goToLesson(${i})">${i+1}과</button>`
-      ).join('');
+  }
+  setLessonOptions();
+
+  function changeLesson() {
+    let sel = document.getElementById('lessonSelect');
+    currentUnit = parseInt(sel.value, 10);
+    currentSectionIdx = 0;
+    buildStates = {};
+    updateUI();
+  }
+  function selectSection(idx) {
+    currentSectionIdx = idx;
+    buildStates = {};
+    updateUI();
+  }
+
+  function speak(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const utter = new window.SpeechSynthesisUtterance(text);
+      utter.lang = 'en-US'; // 반드시 영어
+      utter.rate = 1;
+      window.speechSynthesis.speak(utter);
     }
-    function renderLesson() {
-      renderLessonSelectBar();
-      const lesson = lessons[lessonIdx];
-      document.getElementById("lesson-title").textContent = lesson.title;
-      document.getElementById("lesson-progress").textContent = (lessonIdx+1) + " / " + lessons.length;
-      const container = document.getElementById("lesson-container");
-      container.innerHTML = "";
-      lesson.problems.forEach((prob, i) => {
-        let state = problemStates[i];
-        if (!state) {
-          state = { chosen: [], pool: shuffle(prob.eng), result: "", showAnswer: false };
-          problemStates[i] = state;
+  }
+
+  function updateUI() {
+    document.getElementById('mainTitle').textContent = `Lesson ${currentUnit}`;
+    document.getElementById('lessonSelect').value = currentUnit;
+    let tabs = '', sections = lessonSections[currentUnit] || [];
+    sections.forEach((name, idx) => {
+      tabs += `<button class="section-tab${idx===currentSectionIdx?' selected':''}" onclick="selectSection(${idx})">${name}</button>`;
+    });
+    document.getElementById('sectionTabs').innerHTML = tabs;
+    let contentHTML = '';
+    const sectionKey = sections[currentSectionIdx];
+    const sentArr = sectionSentences[sectionKey] || [];
+    sentArr.forEach(({en, ko}, i) => {
+      let st = buildStates[i] || { chosen: [], pool: shuffle(en.split(' ')), result: "", showAnswer: false };
+      buildStates[i] = st;
+      contentHTML += `
+        <div class="sentence-row" style="align-items: flex-start;">
+          <div class="sentence-content" style="width:100%">
+            <div class="en" style="margin-bottom:6px;color:#222;">${ko}</div>
+            <div class="eng-ans sortable" id="ans-${i}">
+              ${st.chosen.map((w, idx) => 
+                `<button class="word" onclick="moveToPool(${i}, ${idx})">${w}</button>`
+              ).join('')}
+            </div>
+            <div class="eng-build sortable" id="pool-${i}">
+              ${st.pool.map((w, idx) =>
+                `<button class="word" onclick="moveToAns(${i}, ${idx})">${w}</button>`
+              ).join('')}
+            </div>
+            <div class="eng-btns">
+              <button onclick="undoLastWord(${i})">되돌리기</button>
+              <button onclick="resetBuild(${i})">초기화</button>
+              <button onclick="checkBuild(${i})">정답 확인</button>
+            </div>
+            <div class="eng-result" id="engres-${i}">${st.result||""}</div>
+            <div class="answer-sentence" id="answersen-${i}" style="margin-top:4px; color:#374151; font-size:1.05em; ${st.showAnswer ? '' : 'display:none;'}">
+              정답문장: <span style="color:#2563eb;">${en}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    document.getElementById('sectionContent').innerHTML = contentHTML || `<i>아직 내용이 없습니다.</i>`;
+
+    setTimeout(() => {
+      sentArr.forEach((item, idx) => {
+        let ansEl = document.getElementById('ans-' + idx);
+        let poolEl = document.getElementById('pool-' + idx);
+        if (!ansEl || !poolEl) return;
+        const groupName = 'group-'+currentUnit+'-'+currentSectionIdx+'-'+idx;
+        if (!ansEl.dataset.sortable) {
+          Sortable.create(ansEl, {
+            group: { name: groupName, pull: true, put: true },
+            animation: 130,
+            direction: 'horizontal',
+            onAdd: function(evt) { syncWords(idx); },
+            onUpdate: function(evt) { syncWords(idx); }
+          });
+          ansEl.dataset.sortable = "1";
         }
-        const pb = document.createElement("div");
-        pb.className = "problem-block";
-        pb.innerHTML = `
-          <div class="kor">${i+1}. ${prob.kor}</div>
-          <div class="sortable answer" id="ans-${i}">
-            ${state.chosen.map((w, idx) => `<button class="word" onclick="removeWord(${i},${idx})">${w}</button>`).join('')}
-          </div>
-          <div class="sortable pool" id="pool-${i}">
-            ${state.pool.map((w, idx) => `<button class="word" onclick="chooseWord(${i},${idx})">${w}</button>`).join('')}
-          </div>
-          <div class="ctrl">
-            <button onclick="undoLastWord(${i})">되돌리기</button>
-            <button onclick="resetSentence(${i})">초기화</button>
-            <button onclick="checkAnswer(${i})">정답 확인</button>
-          </div>
-          <div class="result" id="result-${i}">${state.result||""}</div>
-          <div class="answer-sentence" style="margin-top:4px;color:#374151;font-size:1.04em;${state.showAnswer?'':'display:none'}">
-            정답문장: <span style="color:#2563eb;">${prob.eng.join(' ')}</span>
-          </div>
-        `;
-        container.appendChild(pb);
-      });
-
-      lesson.problems.forEach((prob, i) => {
-        Sortable.create(document.getElementById(`ans-${i}`), {
-          group: `words${i}`,
-          animation: 120,
-          swapThreshold: 0.4,
-          onSort: function(evt) {
-            const state = problemStates[i];
-            const ansElem = document.getElementById(`ans-${i}`);
-            state.chosen = Array.from(ansElem.children).map(btn => btn.textContent);
-            state.result = "";
-          },
-          onAdd: function(evt) {
-            const state = problemStates[i];
-            const ansElem = document.getElementById(`ans-${i}`);
-            const poolElem = document.getElementById(`pool-${i}`);
-            const newIdx = evt.newIndex;
-            const movedWord = evt.item.textContent;
-            const poolIdx = state.pool.indexOf(movedWord);
-            if(poolIdx > -1) state.pool.splice(poolIdx,1);
-            state.chosen = Array.from(ansElem.children).map(btn => btn.textContent);
-            const existIdx = state.chosen.lastIndexOf(movedWord);
-            if(existIdx > -1) state.chosen.splice(existIdx,1);
-            state.chosen.splice(newIdx, 0, movedWord);
-            state.result = "";
-            renderLesson();
-          }
-        });
-        Sortable.create(document.getElementById(`pool-${i}`), {
-          group: `words${i}`,
-          animation: 120,
-          sort: false,
-          onAdd: function(evt) {
-            const state = problemStates[i];
-            const ansElem = document.getElementById(`ans-${i}`);
-            const poolElem = document.getElementById(`pool-${i}`);
-            state.chosen = Array.from(ansElem.children).map(btn => btn.textContent);
-            state.pool = Array.from(poolElem.children).map(btn => btn.textContent);
-            state.result = "";
-          }
-        });
-      });
-    }
-    function chooseWord(pIdx, wIdx) {
-      let state = problemStates[pIdx];
-      state.chosen.push(state.pool[wIdx]);
-      state.pool.splice(wIdx, 1);
-      state.result = "";
-      state.showAnswer = false;
-      renderLesson();
-    }
-    function removeWord(pIdx, wIdx) {
-      let state = problemStates[pIdx];
-      state.pool.push(state.chosen[wIdx]);
-      state.chosen.splice(wIdx, 1);
-      state.result = "";
-      state.showAnswer = false;
-      renderLesson();
-    }
-    function undoLastWord(pIdx) {
-      let state = problemStates[pIdx];
-      if (state.chosen.length > 0) {
-        state.pool.push(state.chosen.pop());
-        state.result = "";
-        state.showAnswer = false;
-        renderLesson();
-      }
-    }
-    function resetSentence(pIdx) {
-      let prob = lessons[lessonIdx].problems[pIdx];
-      problemStates[pIdx] = { chosen: [], pool: shuffle(prob.eng), result: "", showAnswer: false };
-      renderLesson();
-    }
-    function checkAnswer(pIdx) {
-      let prob = lessons[lessonIdx].problems[pIdx];
-      let state = problemStates[pIdx];
-      state.showAnswer = !state.showAnswer;
-      if (state.showAnswer) {
-        if (state.chosen.join(' ') === prob.eng.join(' ')) {
-          state.result = "정답입니다! 🎉";
-          speak(prob.eng.join(' '));
-        } else {
-          state.result = "?.";
+        if (!poolEl.dataset.sortable) {
+          Sortable.create(poolEl, {
+            group: { name: groupName, pull: true, put: true },
+            animation: 130,
+            direction: 'horizontal',
+            onAdd: function(evt) { syncWords(idx); },
+            onUpdate: function(evt) { syncWords(idx); }
+          });
+          poolEl.dataset.sortable = "1";
         }
+      });
+    }, 0);
+  }
+
+  function syncWords(idx) {
+    let ansEl = document.getElementById('ans-'+idx);
+    let poolEl = document.getElementById('pool-'+idx);
+    let st = buildStates[idx];
+    st.chosen = Array.from(ansEl.children).map(b=>b.textContent);
+    st.pool = Array.from(poolEl.children).map(b=>b.textContent);
+    st.result = "";
+    st.showAnswer = false; // 단어 이동 시 정답문장 숨김
+    updateUI();
+  }
+  function shuffle(arr) { return arr.slice().sort(() => Math.random() - 0.5);}
+  function undoLastWord(i) {
+    let st = buildStates[i];
+    if(st.chosen.length>0) st.pool.push(st.chosen.pop());
+    st.result="";
+    st.showAnswer = false;
+    updateUI();
+  }
+  function resetBuild(i) {
+    let sentArr = sectionSentences[lessonSections[currentUnit][currentSectionIdx]] || [];
+    buildStates[i] = {chosen:[], pool:shuffle(sentArr[i].en.split(' ')), result:"", showAnswer: false };
+    updateUI();
+  }
+  function checkBuild(i) {
+    let sentArr = sectionSentences[lessonSections[currentUnit][currentSectionIdx]] || [];
+    let st = buildStates[i];
+    let correct = sentArr[i].en.trim();
+    let user = st.chosen.join(' ').trim();
+    st.showAnswer = !st.showAnswer; // 토글
+    if(st.showAnswer) {
+      if(user === correct) {
+        st.result = "정답입니다! 🎉";
+        speak(correct);   // 정답 영어문장 읽기
       } else {
-        state.result = "";
+        st.result = "?!";
       }
-      renderLesson();
+    } else {
+      st.result = "";
     }
-    function nextLesson() {
-      if (lessonIdx < lessons.length-1) {
-        goToLesson(lessonIdx+1);
-      }
-    }
-    function prevLesson() {
-      if (lessonIdx > 0) {
-        goToLesson(lessonIdx-1);
-      }
-    }
-    function goToLesson(idx) {
-      lessonIdx = Number(idx);
-      problemStates = [];
-      renderLesson();
-    }
-    renderLesson();
-    window.chooseWord = chooseWord;
-    window.removeWord = removeWord;
-    window.undoLastWord = undoLastWord;
-    window.resetSentence = resetSentence;
-    window.checkAnswer = checkAnswer;
-    window.nextLesson = nextLesson;
-    window.prevLesson = prevLesson;
-    window.goToLesson = goToLesson;
-  </script>
+    updateUI();
+  }
+
+  window.moveToAns = function(i, idx) {
+    let st = buildStates[i];
+    st.chosen.push(st.pool[idx]);
+    st.pool.splice(idx,1);
+    st.result = "";
+    st.showAnswer = false;
+    updateUI();
+  }
+  window.moveToPool = function(i, idx) {
+    let st = buildStates[i];
+    st.pool.push(st.chosen[idx]);
+    st.chosen.splice(idx,1);
+    st.result = "";
+    st.showAnswer = false;
+    updateUI();
+  }
+
+  updateUI();
+  window.selectSection = selectSection;
+  window.undoLastWord = undoLastWord;
+  window.resetBuild = resetBuild;
+  window.checkBuild = checkBuild;
+</script>
 </body>
 </html>
